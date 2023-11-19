@@ -251,7 +251,7 @@ export default function AllDogs(){
     }, [])
 
     return (
-    <div id="container" className="bg-black w-full h-fit max-w-full md:overflow-x-hidden sm:overflow-x-scroll" style={{width:'100%'}}>
+    <div id="container" className="bg-black w-full h-fit max-w-full overflow-x-hidden" style={{width:'100%'}}>
     
       {loading?
           <><div id="loading" className="lg:w-[200vh] md:w-[150vh] w-[70vh] h-[100vh] md:left-0 -left-20 top-0 bg-white" ></div>
