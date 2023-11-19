@@ -126,7 +126,7 @@ body {
   background-size: cover;
   background-repeat: repeat-x;
   background-color: white;
-  background-position: -50vh 0;
+  background-position: -60vh 0;
 }
 #container{
   transform: trnaslateY(-30rem);
