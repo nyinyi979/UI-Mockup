@@ -9,6 +9,7 @@ let move_left_f: AnimeInstance;             //to move left
 let move_right_f: AnimeInstance;            //to move right
 let move_left_s: AnimeInstance;             //to move left
 let move_right_s: AnimeInstance;            //to move right
+let scroll_top_left: AnimeInstance;
 let main_id:string;
 let bg_color:string;
 let first_array_l:string[];
@@ -62,50 +63,51 @@ export default function ImageBox(){
     move_right_s.restart();
     setTimeout(()=>{
       custom_image.classList.remove(bg_color);
+      document.getElementById('items')!.style.top = `${scrollPoint}`;
       document.getElementById('items')!.style.position = 'relative';
-      document.getElementById('items')!.scrollTo({top:scrollPoint,behavior:'smooth'})
+      window!.scrollTo({top:scrollPoint,behavior:'smooth'})
     }, 250)
   }
 
   return(
     <>
-    <div id="overlay" className="hidden fixed bg-black/50 cursor-pointer w-[100%] h-[100%] top-0 left-0 lg:py-20 py-0 px-10 z-50" onClick={exitImageView} onSelect={(e)=>{e.preventDefault()}}>
+    <div id="overlay" className=" fixed bg-black/50 cursor-pointer w-[100%] h-[100%] top-0 left-0 lg:py-20 py-0 px-10 z-30" onClick={exitImageView} onSelect={(e)=>{e.preventDefault()}}>
       <div className="grid lg:grid-cols-4 grid-cols-2 gap-10">
         <img src='/w1.png' id="custom_img" className="col-span-2 block cursor-pointer rounded-lg lg:w-[176px] lg:h-[176px] md:w-[156px] md:h-[156px] h-[128px] w-[128px] mx-auto ml-[70px] mt-[22px]"/>
 
         <div className="w-full col-span-2 z-40">
           <h1 id="name" className="text-left w-full text-3xl p-2 lg:mt-0 mt-44">FluffyHugs #ID</h1>
-          <div id="scroll" className="grid grid-cols-2 gap-2 lg:h-full h-72 overflow-y-scroll overscroll-contain pb-10">
+          <div id="scroll" className="grid grid-cols-2 md:gap-2 gap-0 lg:h-full h-72 overflow-y-scroll overscroll-contain scrollbar scrollbar-w-1 scrollbar-thumb-rounded-sm scrollbar-thumb-sky-200 md:scrollbar-track-transparent pb-10">
             
             <div className="flex flex-col">
-              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
+              <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d1" className="text-sm text-gray-300 py-1">Hello</h2>
                 <h2 id="d1_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
+              <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d2" className="text-sm text-gray-300 py-1">Hello</h2>
                 <h2 id="d2_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
+              <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d3" className="text-sm text-gray-300 py-1">Hello</h2>
                 <h2 id="d3_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
+              <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d8" className="text-sm text-gray-300 py-1">Hello</h2>
                 <h2 id="d8_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
             </div>
 
             <div className="flex flex-col">
-              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
+              <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d4" className="text-sm text-gray-300 py-1">Hello</h2>
                 <h2 id="d4_val" className="lg:text-lg text-sm py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
+              <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d5" className="text-sm text-gray-300 py-1">Hello</h2>
                 <h2 id="d5_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
+              <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d6" className="text-sm text-gray-300 py-1">Hello</h2>
                 <h2 id="d6_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
@@ -122,16 +124,17 @@ export default function ImageBox(){
 type props = {d_1:string , d_2:string , d_3:string , d_4: string, d_5: string, d_6: string, d_1_val:string , d_2_val:string , d_3_val:string , d_4_val: string, d_5_val: string, d_6_val: string,}
 export function setValue( gridID:string , imgPath:string, bg:string ,data?: props ){
 
-  
   document.getElementById(gridID)!.scrollIntoView({behavior: 'smooth', block: 'center'});
   bg_color = bg;
   let custom_image = document.getElementById('custom_img')!;
   custom_image.setAttribute('src', imgPath);
   custom_image.classList.add(bg_color);
-  console.log(window.innerWidth)
-  if(window.innerWidth >= 1024) AddAnimation(gridID);
-  else if(window.innerWidth >= 720 && window.innerWidth < 1024) AddAnimationMiddleScreen(gridID)
-  else AddAnimationSmallScreen(gridID);
+  console.log(window.innerWidth);
+  setTimeout(()=>{
+    if(window.innerWidth >= 1024) AddAnimation(gridID);
+    else if(window.innerWidth >= 720 && window.innerWidth < 1024) AddAnimationMiddleScreen(gridID)
+    else AddAnimationSmallScreen(gridID);
+  }, 1)
     if(data){
         //setting DATA, if you wants to:)
       document.getElementById('d_1')!.innerText = data.d_1;
@@ -168,13 +171,13 @@ function AddAnimation(id: string ){
   let offsetTop = parentElement!.offsetTop
   document.getElementById(`grid_${ids+30}`)!.scrollIntoView({behavior: 'smooth', block: 'center'});
   document.getElementById('items')!.style.position = 'fixed';
-  scrollPoint = offsetTop - (offsetTop * 2) + 270;
+  scrollPoint = offsetTop - (offsetTop * 2) + 260;
 
   //scrolling top and left
-  anime({
+  scroll_top_left = anime({
     targets: `#items`,
     left: offsetLeft - (offsetLeft * 2) + 250,
-    top: `${offsetTop - (offsetTop * 2) + 260}px`,
+    top: scrollPoint,
     delay: anime.stagger(100),
     duration: 400,
     easing: 'easeInOutQuad',
@@ -192,28 +195,28 @@ function AddAnimation(id: string ){
   move_right_f = anime({
     targets: first_array_r,
     translateX: 370,
-    duration: 400,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_f = anime({
     targets: first_array_l,
     translateX: -365,
-    duration: 400,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_right_s = anime({
     targets: second_array_r,
     translateX: 190,
-    duration: 400,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_s = anime({
     targets: second_array_l,
     translateX: -185,
-    duration: 400,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
@@ -251,11 +254,12 @@ function AddAnimationSmallScreen(id: string ){
   let offsetTop = parentElement!.offsetTop
   document.getElementById(`grid_${ids+30}`)!.scrollIntoView({behavior: 'smooth', block: 'center'});
   document.getElementById('items')!.style.position = 'fixed';
+  scrollPoint = offsetTop - (offsetTop * 2) + 150;
   //scroll top and left
   anime({
     targets: `#items`,
-    left: offsetLeft - (offsetLeft * 2) + 200,
-    top: `${offsetTop - (offsetTop * 2) + 150}px`,
+    left: offsetLeft - (offsetLeft * 2) + 180,
+    top: scrollPoint,
     delay: anime.stagger(100),
     duration: 400,
     easing: 'easeInOutQuad',
@@ -271,29 +275,29 @@ function AddAnimationSmallScreen(id: string ){
   })
   move_right_f = anime({
     targets: first_array_r,
-    translateX: 270,
-    duration: 400,
+    translateX: 250,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_right_s = anime({
     targets: second_array_r,
-    translateX: 135,
-    duration: 400,
+    translateX: 155,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_f = anime({
     targets: first_array_l,
     translateX: -270,
-    duration: 400,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_s = anime({
     targets: second_array_l,
     translateX: -135,
-    duration: 400,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
@@ -332,11 +336,12 @@ function AddAnimationMiddleScreen(id: string ){
   let offsetTop = parentElement!.offsetTop
   document.getElementById(`grid_${ids+31}`)!.scrollIntoView({behavior: 'smooth', block: 'center'});
   document.getElementById('items')!.style.position = 'fixed';
+  scrollPoint = offsetTop - (offsetTop * 2) + 150;
   //scroll top and left
   anime({
     targets: `#items`,
-    left: offsetLeft - (offsetLeft * 2) + 300,
-    top: `${offsetTop - (offsetTop * 2) + 150}px`,
+    left: offsetLeft - (offsetLeft * 2) + 280,
+    top:scrollPoint,
     delay: anime.stagger(100),
     duration: 400,
     easing: 'easeInOutQuad',
@@ -357,29 +362,29 @@ function AddAnimationMiddleScreen(id: string ){
   })
   move_right_f = anime({
     targets: first_array_r,
-    translateX: 323,
-    duration: 400,
+    translateX: 303,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_right_s = anime({
     targets: second_array_r,
-    translateX: 160,
-    duration: 400,
+    translateX: 140,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_f = anime({
     targets: first_array_l,
     translateX: -323,
-    duration: 400,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_s = anime({
     targets: second_array_l,
     translateX: -160,
-    duration: 400,
+    duration: 500,
     autoplay: true,
     easing: 'linear'
   })

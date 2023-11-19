@@ -107,7 +107,6 @@ function ProduceImageWithDirection(images_: string[]){
 export default function AllDogs(){
   let [loading , setLoading] = useState(true);
     useEffect(()=>{
-      document.getElementById('loading')!.style.display = 'block'
        for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex}`;
         flex+= 1;
@@ -120,7 +119,7 @@ export default function AllDogs(){
       }
       //white
       flex_w = 0;
-      let promise = new Promise((resolve, reject)=>{
+      setTimeout(()=>{
 
        for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_w}`;
@@ -133,6 +132,7 @@ export default function AllDogs(){
           </div>
         )
       }
+      
       //gray
       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_g}`;
@@ -591,7 +591,7 @@ export default function AllDogs(){
 
       //right direction
       let rightImg = ['/a2.png' , '/a3.png' , '/b1.png' , '/w2.png']
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexRight}`;
         flexRight += 1;
         let Items = ProduceImageWithDirection(rightImg);
@@ -604,7 +604,7 @@ export default function AllDogs(){
 
       //left direction
       let leftImg = ['/b2.png' , '/b3.png' , '/b6.png' , '/b7.png', '/b8.png' , '/b9.png' , '/b10.png' ,'/w1.png' , '/w6.png']
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexLeft}`;
         flexLeft += 1;
         let Items = ProduceImageWithDirection(leftImg);
@@ -617,7 +617,7 @@ export default function AllDogs(){
 
       //center direction
       let centerImg = ['/a1.png','/b4.png','/w3.png','/w4.png','/w5.png'];
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexCenter}`;
         flexCenter += 1;
         let Items = ProduceImageWithDirection(centerImg);
@@ -627,44 +627,40 @@ export default function AllDogs(){
           </div>
         )
       }
-      resolve("DONE");
-    })
-    promise.then(()=>{
-      document.getElementById('loading')!.style.display = 'none';
       setLoading(false);
-    })
+      }, 10)
 
-    }, [])
-
-    useEffect(()=>{
-      anime({
-        targets: ['#first_circle' , '#second_circle'],
-        scale: 1,
-        loop:false,
-        duration: 1500,
-        delay: 100,
-        easing: 'easeInOutQuad',
-        opacity: 1,
-        autoplay: true,
-        changeBegin: ()=>{
-          document.getElementById('first_circle')!.style.backgroundColor = 'black'
-          document.getElementById('second_circle')!.style.backgroundColor = 'black'
-        },
-        complete: ()=>{
-          document.getElementById('blue')!.style.display = 'none';
-          document.getElementById('top')!.style.opacity = '1';
-          document.getElementById('text')!.style.opacity = '1';
-          document.getElementById('navbar')!.style.opacity = '1';
-        }
-    });
-    document.getElementById('flex_14')?.scrollIntoView({behavior:'smooth' , block: 'center'});
+      setTimeout(()=>{
+        anime({
+          targets: ['#first_circle' , '#second_circle'],
+          scale: 1,
+          loop:false,
+          duration: 1500,
+          delay: 100,
+          easing: 'linear',
+          opacity: 1,
+          autoplay: true,
+          changeBegin: ()=>{
+            document.getElementById('first_circle')!.style.backgroundColor = 'black'
+            document.getElementById('second_circle')!.style.backgroundColor = 'black'
+          },
+          complete: ()=>{
+            document.getElementById('blue')!.style.display = 'none';
+            document.getElementById('top')!.style.opacity = '1';
+            document.getElementById('text')!.style.opacity = '1';
+            document.getElementById('navbar')!.style.opacity = '1';
+          }
+      });
+        document.getElementById('flex_14')?.scrollIntoView({behavior:'smooth' , block: 'center'});
+      }, 20)
 
     }, [])
     return (
     <div id="container" className="bg-black w-full h-fit max-w-full overflow-x-hidden" style={{width:'100%'}}>
-      
-      <div id="loading" className="w-[80vh] md:w-[160vh] lg:w-[200vh] h-[100vh] "></div>
-      {loading? '' : 
+    
+      {loading?
+          <div id="loading" className="lg:w-[200vh] md:w-[150vh] w-[100vh] h-[100vh] md:left-0 -left-20 top-0 bg-white" ></div>
+        : 
       <>
         <div id="items" className="">
           <div id="all_items" className="">{items} </div>
@@ -708,16 +704,17 @@ export default function AllDogs(){
           <div id="b10.png" className="hidden">{b10}</div>
 
           
-          <div id="left" className="hidden">{left}</div>
-          <div id="right" className="hidden">{right}</div>
-          <div id="center" className="hidden">{center}</div>
+          <div id="left" className="">{left}</div>
+          <div id="right" className="">{right}</div>
+          <div id="center" className="">{center}</div>
         </div>
       </>
       }
       <ImageBox />
       <NavBar />
-      <div id="text" className='fixed top-16 md:left-[4.5rem] opacity-0 left-[4rem] font-extrabold text-white z-40 md:text-7xl text-4xl'> Fluffy Hugs</div>
-      <div id="top" className="z-30 fixed right-[6rem] top-28 opacity-0 border-white border-2 rounded-full cursor-pointer hover:bg-black/95 px-8 py-2" onClick={animate}>Top</div>
+      <div id="black_overlay"></div>
+      <div id="text" className='fixed top-16 md:left-[4.5rem] opacity-0 left-[3rem] font-extrabold text-white z-40 md:text-7xl text-5xl'> Fluffy Hugs</div>
+      <div id="top" className="z-20 fixed md:right-[6rem] right-[4rem] md:top-28 top-20 opacity-0 border-white border-2 rounded-full cursor-pointer hover:border-gray-300 duration-300 md:px-8 px-6 py-2" onClick={animate}>Top</div>
       <div id="blue" className="z-100 fixed right-0 bottom-0 cursor-pointer">
           <div id="first_circle" className="two_circles  absolute opacity-1 -bottom-5 -right-3 w-32 h-32 rotate-[40deg]" style={{borderRadius:'4rem 4rem 0 0',transform:'scale(35)'}}></div>
           <div id="second_circle" className="two_circles absolute opacity-1 -bottom-7 right-20 w-24 h-24 rotate-3" style={{borderRadius:'5rem 4rem 0 5rem',transform:'scale(35)'}}></div>
