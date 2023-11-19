@@ -32,31 +32,31 @@ export default function LandingPage(){
             Fluffy Hugs
         </div>
         <div id="imgs">
-            <Image src={'/1.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp bg-cover absolute top-[-200px] left-[-100px]"/>
-            <Image src={'/2.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp300 bg-cover absolute top-[-300px] left-[15%]"/>
-            <Image src={'/3.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp bg-cover absolute top-[-300px] left-[35%]"/>
-            <Image src={'/4.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp300 bg-cover absolute top-[-300px] left-[55%]"/>
-            <Image src={'/1.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp bg-cover absolute top-[-200px] left-[65%]"/>
-            <Image src={'/2.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp300 bg-cover absolute top-[-300px] left-[85%]"/>
-            <Image src={'/3.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp bg-cover absolute top-[-300px] left-[95%]"/>
-            <Image src={'/4.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp300 bg-cover absolute top-[-300px] left-[100%]"/>
-            <Image src={'/4.png'} alt="w2" width={600} height={500} className="rounded-md z-20 bounceUp bg-cover absolute top-[0px] left-[-100px]"/>
-            <Image src={'/3.png'} alt="w2" width={600} height={500} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[200px] left-[-10%]"/>
-            <Image src={'/3.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[-200px] left-[-20%]"/>
-            <Image src={'/2.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp bg-cover absolute top-[200px] left-[20%]"/>
-            <Image src={'/1.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[200px] left-[50%]"/>
-            <Image src={'/4.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp bg-cover absolute top-[200px] left-[60%]"/>
-            <Image src={'/3.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[200px] left-[75%]"/>
-            <Image src={'/2.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp bg-cover absolute top-[200px] left-[90%]"/>
-            <Image src={'/1.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[200px] left-[100%]"/>
-            <Image src={'/4.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[15%]"/>
-            <Image src={'/3.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[-10%]"/>
-            <Image src={'/2.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[35%]"/>
-            <Image src={'/4.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[95%]"/>
-            <Image src={'/2.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[55%]"/>
-            <Image src={'/4.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[70%]"/>
-            <Image src={'/3.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[30%]"/>
-            <Image src={'/2.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[10%]"/>
+            <Image src={'/a1.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp bg-cover absolute top-[-200px] left-[-100px]"/>
+            <Image src={'/a2.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp300 bg-cover absolute top-[-300px] left-[15%]"/>
+            <Image src={'/a3.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp bg-cover absolute top-[-300px] left-[35%]"/>
+            <Image src={'/a4.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp300 bg-cover absolute top-[-300px] left-[55%]"/>
+            <Image src={'/a1.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp bg-cover absolute top-[-200px] left-[65%]"/>
+            <Image src={'/a2.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp300 bg-cover absolute top-[-300px] left-[85%]"/>
+            <Image src={'/a3.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp bg-cover absolute top-[-300px] left-[95%]"/>
+            <Image src={'/a4.png'} alt="w2" width={600} height={500} className="rounded-md bounceUp300 bg-cover absolute top-[-300px] left-[100%]"/>
+            <Image src={'/a4.png'} alt="w2" width={600} height={500} className="rounded-md z-20 bounceUp bg-cover absolute top-[0px] left-[-100px]"/>
+            <Image src={'/a3.png'} alt="w2" width={600} height={500} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[200px] left-[-10%]"/>
+            <Image src={'/a3.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[-200px] left-[-20%]"/>
+            <Image src={'/a2.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp bg-cover absolute top-[200px] left-[20%]"/>
+            <Image src={'/a1.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[200px] left-[50%]"/>
+            <Image src={'/a4.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp bg-cover absolute top-[200px] left-[60%]"/>
+            <Image src={'/a3.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[200px] left-[75%]"/>
+            <Image src={'/a2.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp bg-cover absolute top-[200px] left-[90%]"/>
+            <Image src={'/a1.png'} alt="w2" width={600} height={600} className="rounded-md z-20 bounceUp300 bg-cover absolute top-[200px] left-[100%]"/>
+            <Image src={'/a4.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[15%]"/>
+            <Image src={'/a3.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[-10%]"/>
+            <Image src={'/a2.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[35%]"/>
+            <Image src={'/a4.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[95%]"/>
+            <Image src={'/a2.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[55%]"/>
+            <Image src={'/a4.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[70%]"/>
+            <Image src={'/a3.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[30%]"/>
+            <Image src={'/a2.png'} alt="w2" width={600} height={600} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[10%]"/>
         </div>
             
             <div id="blue" className="z-50 fixed right-0 bottom-0 cursor-pointer" onClick={animate}>

@@ -53,7 +53,7 @@ let left: React.ReactNode[] = [];
 let right: React.ReactNode[] = [];
 let center: React.ReactNode[] = [];
 let flexLeft = 1 , flexRight = 1, flexCenter = 1;
-let images = ['/w1.png' , '/w2.png' , '/1.png' , '/2.png' , '/3.png' , '/4.png',  '/w3.png' , '/w4.png' , '/w5.png', '/w6.png', '/b1.png',
+let images = ['/w1.png' , '/w2.png' , '/a1.png' , '/a2.png' , '/a3.png' , '/a4.png',  '/w3.png' , '/w4.png' , '/w5.png', '/w6.png', '/b1.png',
  '/b2.png', '/b3.png', '/b4.png', '/b6.png', '/b7.png', '/b8.png', '/b9.png', '/b10.png'];
 
  let bg = ['bg-white' , 'bg-gray-500' ,  'bg-gray-950' , 'bg-red-500' , 'bg-red-950' , 'bg-blue-500' , 'bg-blue-950' , 'bg-stone-500' , 'bg-stone-950' , 
@@ -120,6 +120,8 @@ export default function AllDogs(){
       }
       //white
       flex_w = 0;
+      let promise = new Promise((resolve, reject)=>{
+
        for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_w}`;
         flex_w+= 1;
@@ -539,7 +541,7 @@ export default function AllDogs(){
       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexA1}`;
         flexA1 += 1;
-        let src = '/1.png';
+        let src = '/a1.png';
         let Items = ProduceImageWithSrc(src);
         a1.push(
           <div id={flex_id} key={flex_id} className="flex flex-row w-fit">
@@ -552,7 +554,7 @@ export default function AllDogs(){
        for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexA2}`;
         flexA2 += 1;
-        let src = '/2.png';
+        let src = '/a2.png';
         let Items = ProduceImageWithSrc(src);
         a2.push(
           <div id={flex_id} key={flex_id} className="flex flex-row w-fit">
@@ -565,7 +567,7 @@ export default function AllDogs(){
        for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexA3}`;
         flexA3 += 1;
-        let src = '/3.png';
+        let src = '/a3.png';
         let Items = ProduceImageWithSrc(src);
         a3.push(
           <div id={flex_id} key={flex_id} className="flex flex-row w-fit">
@@ -578,7 +580,7 @@ export default function AllDogs(){
        for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexA4}`;
         flexA4 += 1;
-        let src = '/4.png';
+        let src = '/a4.png';
         let Items = ProduceImageWithSrc(src);
         a4.push(
           <div id={flex_id} key={flex_id} className="flex flex-row w-fit">
@@ -588,7 +590,7 @@ export default function AllDogs(){
       }
 
       //right direction
-      let rightImg = ['/2.png' , '/3.png' , '/b1.png' , '/w2.png']
+      let rightImg = ['/a2.png' , '/a3.png' , '/b1.png' , '/w2.png']
       for(var i = 0; i<40; i++){
         let flex_id =  `flex_${flexRight}`;
         flexRight += 1;
@@ -614,7 +616,7 @@ export default function AllDogs(){
       }
 
       //center direction
-      let centerImg = ['/1.png','/b4.png','/w3.png','/w4.png','/w5.png'];
+      let centerImg = ['/a1.png','/b4.png','/w3.png','/w4.png','/w5.png'];
       for(var i = 0; i<40; i++){
         let flex_id =  `flex_${flexCenter}`;
         flexCenter += 1;
@@ -625,9 +627,12 @@ export default function AllDogs(){
           </div>
         )
       }
-
+      resolve("DONE");
+    })
+    promise.then(()=>{
       document.getElementById('loading')!.style.display = 'none';
       setLoading(false);
+    })
 
     }, [])
 
@@ -649,6 +654,7 @@ export default function AllDogs(){
           document.getElementById('blue')!.style.display = 'none';
           document.getElementById('top')!.style.opacity = '1';
           document.getElementById('text')!.style.opacity = '1';
+          document.getElementById('navbar')!.style.opacity = '1';
         }
     });
     document.getElementById('flex_14')?.scrollIntoView({behavior:'smooth' , block: 'center'});
@@ -657,7 +663,7 @@ export default function AllDogs(){
     return (
     <div id="container" className="bg-black w-full h-fit max-w-full overflow-x-hidden" style={{width:'100%'}}>
       
-      <div id="loading"></div>
+      <div id="loading" className="w-[80vh] md:w-[160vh] lg:w-[200vh] h-[100vh] "></div>
       {loading? '' : 
       <>
         <div id="items" className="">

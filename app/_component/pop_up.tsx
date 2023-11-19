@@ -8,8 +8,8 @@ import { GiMultiDirections } from "react-icons/gi";
 let icon_class = "cursor-pointer text-black ml-3 text-4xl hover:scale-110 scale-100 duration-300 h-12"
 
 export function Dogs(){
-    let images = ['/w1.png' , '/w2.png' , '/w3.png' , '/w4.png' , '/w5.png', '/w6.png', '/b1.png', '/3.png' , '/4.png',
-    '/b2.png', '/b3.png', '/b4.png', '/b6.png', '/b7.png', '/b8.png', '/b9.png', '/b10.png' , '/1.png' , '/2.png'];
+  let images = ['/w1.png' , '/w2.png' , '/a1.png' , '/a2.png' , '/a3.png' , '/a4.png',  '/w3.png' , '/w4.png' , '/w5.png', '/w6.png', '/b1.png',
+   '/b2.png', '/b3.png', '/b4.png', '/b6.png', '/b7.png', '/b8.png', '/b9.png', '/b10.png'];
     let [ chosen , setChosen ] = useState('');
     function choosenCheck(value:string){
         if(chosen === value) setChosen('');
