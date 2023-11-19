@@ -45,9 +45,6 @@ export function Dogs(){
       else {
         //hide other chosen things 
         if(all_items !== null) all_items.style.display = 'none';
-        document.getElementById('chosen_direction')!.style.opacity = '0'
-        document.getElementById('chosen_dog')!.style.opacity = '1'
-        document.getElementById('chosen_color')!.style.opacity = '0'
       }
     }, [chosen])
     return(
@@ -97,9 +94,6 @@ export function Bg(){
       }
       else {
         if(all_items !== null) all_items.style.display = 'none';
-        document.getElementById('chosen_direction')!.style.opacity = '0'
-        document.getElementById('chosen_dog')!.style.opacity = '0'
-        document.getElementById('chosen_color')!.style.opacity = '1'
       }
     }, [chosen])
     return(
@@ -146,9 +140,6 @@ export function Direction(){
     else {
       if(all_items !== null) {
         all_items.style.display = 'none'
-        document.getElementById('chosen_direction')!.style.opacity = '1'
-        document.getElementById('chosen_dog')!.style.opacity = '0'
-        document.getElementById('chosen_color')!.style.opacity = '0'
       }
     }
   }, [chosen])
@@ -157,12 +148,12 @@ export function Direction(){
       <div className="dropdown dropdown-right relative mt-5" onClick={()=>{}}>
         <label tabIndex={0} className=" border-none outline-none -py-2">
           <TfiDirectionAlt className={icon_class}/> 
-          <div id="chosen_direction" className="absolute block left-2 top-0  ${chosen} bg-black  z-30 border-black border-2  w-12 h-12 rounded-md cursor-pointer">
+          <div id="chosen_direction" className="absolute block left-2 top-0 z-30 w-12 h-12 rounded-md cursor-pointer">
             {chosen === '' ? '' : chosen === 'left'?  
-              <BiSolidDirectionLeft/> 
+              <BiSolidDirectionLeft className="bg-black w-full h-full"/> 
             : chosen === 'center'? 
-            <GiMultiDirections />
-            : <BiSolidDirectionRight/>
+            <GiMultiDirections  className="bg-black w-full h-full"/>
+            : <BiSolidDirectionRight className="bg-black h-full w-full"/>
             }
           </div>
         </label>

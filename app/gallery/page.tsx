@@ -29,8 +29,8 @@ export default function Gallery(){
             <div id="top" className="z-20 fixed md:right-[6rem] right-[4rem] top-20 opacity-0 border-white border-2 rounded-full cursor-pointer hover:border-gray-300 duration-300 md:px-8 px-6 py-2" onClick={animate}>Top</div>
             <AllDogs />
             <div id="blue" className="z-100 fixed right-0 bottom-0 cursor-pointer">
-                <div id="first_circle" className="two_circles  bg-black absolute opacity-1 -bottom-5 -right-3 w-32 h-32 rotate-[40deg]" style={{borderRadius:'4rem 4rem 0 0',transform:'scale(1)'}}></div>
-                <div id="second_circle" className="two_circles bg-black absolute opacity-1 -bottom-7 right-20 w-24 h-24 rotate-3" style={{borderRadius:'5rem 4rem 0 5rem',transform:'scale(1)'}}></div>
+                <div id="first_circle" className="two_circles  bg-black absolute opacity-1 -bottom-5 -right-3 w-32 h-32 rotate-[40deg]" style={{borderRadius:'4rem 4rem 0 0',transform:'scale(35)'}}></div>
+                <div id="second_circle" className="two_circles bg-black absolute opacity-1 -bottom-7 right-20 w-24 h-24 rotate-3" style={{borderRadius:'5rem 4rem 0 5rem',transform:'scale(35)'}}></div>
             </div>
             <ImageBox />
             <NavBar />
