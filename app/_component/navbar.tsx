@@ -11,7 +11,7 @@ let icon_class = "cursor-pointer text-black ml-3 text-4xl hover:scale-110 scale-
 export default function NavBar(){
     //BiSolidDog PiDogDuotone GiSittingDog SiDatadog FaCat FaShieldCat
     return(
-        <div className="fixed w-fit h-fit left-0 top-20 rounded-md items-center align-middle z-10">
+        <div className="fixed w-fit h-fit left-0 top-20 rounded-md items-center align-middle z-30">
             {/* first portion */}
             <div className='flex flex-col md:w-24 w-20 pl-4 -translate-x-4 bg-white z-10' style={{borderRadius: '20px'}}>
                 <Dogs />

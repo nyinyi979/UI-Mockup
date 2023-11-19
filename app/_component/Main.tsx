@@ -77,7 +77,7 @@ function ProduceImageWithBG(bg_color:string){
     let _index:number = Math.floor(Math.random() * images.length);
     let img_id = 'grid_' + img;
     img += 1;
-    arr.push(<Image src={images[_index]} key={img_id} id={img_id} alt="pic" width={200} height={200}  onClick={()=>{setValue( img_id , images[_index], bg_color ); }}  className={`${imgClass} ${bg_color}`} />)
+    arr.push(<Image src={images[_index]} key={img_id} id={img_id} alt="pic" width={200} height={200}  onClick={()=>{setValue( img_id , images[_index], bg_color ); }}  className={`${imgClass} ${bg_color}`} priority={true} />)
   }
   return arr;
 }
@@ -87,7 +87,7 @@ function ProduceImageWithSrc(src: string){
     let _index:number = Math.floor(Math.random() * images.length);
     let img_id = 'grid_' + img;
     img += 1;
-    arr.push(<Image src={src} key={img_id} id={img_id} alt="pic" width={200} height={200}  onClick={()=>{setValue( img_id , src, bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} />)
+    arr.push(<Image src={src} key={img_id} id={img_id} alt="pic" width={200} height={200}  onClick={()=>{setValue( img_id , src, bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} priority={true} />)
   }
   return arr;
 }
@@ -99,7 +99,7 @@ function ProduceImageWithDirection(images_: string[]){
     let img_id = 'grid_' + img;
     img += 1;
     arr.push(
-      <Image src={images_[_indexImg]} key={img_id} id={img_id} alt="pic" width={20} height={200}  onClick={()=>{setValue( img_id , images_[_indexImg], bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} />
+      <Image src={images_[_indexImg]} key={img_id} id={img_id} alt="pic" width={20} height={200}  onClick={()=>{setValue( img_id , images_[_indexImg], bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} priority={true} />
     )
   }
   return arr;
@@ -120,7 +120,7 @@ export default function AllDogs(){
       }
       //white
       flex_w = 0;
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_w}`;
         flex_w+= 1;
         let background_colour = bg[0];
@@ -132,7 +132,7 @@ export default function AllDogs(){
         )
       }
       //gray
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_g}`;
         flex_g+= 1;
         let background_colour = bg[1];
@@ -145,7 +145,7 @@ export default function AllDogs(){
       }
 
       //gray950
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_g2}`;
         flex_g2+= 1;
         let background_colour = bg[2];
@@ -158,7 +158,7 @@ export default function AllDogs(){
       }
 
       //red
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_r}`;
         flex_r+= 1;
         let background_colour = bg[3];
@@ -171,7 +171,7 @@ export default function AllDogs(){
       }
       
       //red950
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_r2}`;
         flex_r2+= 1;
         let background_colour = bg[4];
@@ -184,7 +184,7 @@ export default function AllDogs(){
       }
       
       //blue
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_b}`;
         flex_b+= 1;
         let background_colour = bg[5];
@@ -197,7 +197,7 @@ export default function AllDogs(){
       }
 
       //blue950
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_b2}`;
         flex_b2+= 1;
         let background_colour = bg[6];
@@ -210,7 +210,7 @@ export default function AllDogs(){
       }
 
       //stone
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_s}`;
         flex_s+= 1;
         let background_colour = bg[7];
@@ -223,7 +223,7 @@ export default function AllDogs(){
       }
       
       //stone950
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_s2}`;
         flex_s2+= 1;
         let background_colour = bg[8];
@@ -236,7 +236,7 @@ export default function AllDogs(){
       }
       
       //yellow
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_y}`;
         flex_y+= 1;
         let background_colour = bg[9];
@@ -249,7 +249,7 @@ export default function AllDogs(){
       }
       
       //yellow950
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_y2}`;
         flex_y2+= 1;
         let background_colour = bg[10];
@@ -262,7 +262,7 @@ export default function AllDogs(){
       }
       
       //amber
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_a}`;
         flex_a += 1;
         let background_colour = bg[11];
@@ -275,7 +275,7 @@ export default function AllDogs(){
       }
       
       //amber950
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_a2}`;
         flex_a2 += 1;
         let background_colour = bg[12];
@@ -288,7 +288,7 @@ export default function AllDogs(){
       }
       
       //lime
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_l}`;
         flex_l += 1;
         let background_colour = bg[13];
@@ -301,7 +301,7 @@ export default function AllDogs(){
       }
       
       //lime950
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_l2}`;
         flex_l2 += 1;
         let background_colour = bg[14];
@@ -314,7 +314,7 @@ export default function AllDogs(){
       }
       
       //green
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_g}`;
         flex_g += 1;
         let background_colour = bg[15];
@@ -327,7 +327,7 @@ export default function AllDogs(){
       }
       
       //green950
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex_g2}`;
         flex_g2 += 1;
         let background_colour = bg[16];
@@ -340,7 +340,7 @@ export default function AllDogs(){
       }
 
       //b1 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexB1}`;
         flexB1 += 1;
         let src = '/b1.png';
@@ -353,7 +353,7 @@ export default function AllDogs(){
       }
 
       //b2 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexB2}`;
         flexB2 += 1;
         let src = '/b2.png';
@@ -366,7 +366,7 @@ export default function AllDogs(){
       }
 
       //b3 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexB3}`;
         flexB3 += 1;
         let src = '/b3.png';
@@ -379,7 +379,7 @@ export default function AllDogs(){
       }
 
       //b4 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexB4}`;
         flexB4 += 1;
         let src = '/b4.png';
@@ -392,7 +392,7 @@ export default function AllDogs(){
       }
 
       //b6 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexB6}`;
         flexB6 += 1;
         let src = '/b6.png';
@@ -405,7 +405,7 @@ export default function AllDogs(){
       }
 
       //b7 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexB7}`;
         flexB7 += 1;
         let src = '/b7.png';
@@ -418,7 +418,7 @@ export default function AllDogs(){
       }
 
       //b8 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexB8}`;
         flexB8 += 1;
         let src = '/b8.png';
@@ -431,7 +431,7 @@ export default function AllDogs(){
       }
 
       //b9 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexB9}`;
         flexB9 += 1;
         let src = '/b9.png';
@@ -444,7 +444,7 @@ export default function AllDogs(){
       }
 
       //b10 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexB10}`;
         flexB10 += 1;
         let src = '/b10.png';
@@ -457,7 +457,7 @@ export default function AllDogs(){
       }
 
       //w1 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexW1}`;
         flexW1 += 1;
         let src = '/w1.png';
@@ -470,7 +470,7 @@ export default function AllDogs(){
       }
 
       //w2 png
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexW2}`;
         flexW2 += 1;
         let src = '/w2.png';
@@ -484,7 +484,7 @@ export default function AllDogs(){
         
 
       //w3 png
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexW3}`;
         flexW3 += 1;
         let src = '/w3.png';
@@ -497,7 +497,7 @@ export default function AllDogs(){
       }
 
       //w4 png
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexW4}`;
         flexW4 += 1;
         let src = '/w4.png';
@@ -510,7 +510,7 @@ export default function AllDogs(){
       }
 
       //w5 png
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexW5}`;
         flexW5 += 1;
         let src = '/w5.png';
@@ -523,7 +523,7 @@ export default function AllDogs(){
       }
 
       //w6 png
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexW6}`;
         flexW6 += 1;
         let src = '/w6.png';
@@ -536,7 +536,7 @@ export default function AllDogs(){
       }
 
       //a1 png
-      for(var i = 0; i<40; i++){
+      for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexA1}`;
         flexA1 += 1;
         let src = '/1.png';
@@ -549,7 +549,7 @@ export default function AllDogs(){
       }
 
       //a2 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexA2}`;
         flexA2 += 1;
         let src = '/2.png';
@@ -562,7 +562,7 @@ export default function AllDogs(){
       }
 
       //a3 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexA3}`;
         flexA3 += 1;
         let src = '/3.png';
@@ -575,7 +575,7 @@ export default function AllDogs(){
       }
 
       //a4 png
-       for(var i = 0; i<40; i++){
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flexA4}`;
         flexA4 += 1;
         let src = '/4.png';
@@ -651,7 +651,6 @@ export default function AllDogs(){
           document.getElementById('text')!.style.opacity = '1';
         }
     });
-    document.getElementById('loading')!.style.display = 'none';
     document.getElementById('flex_14')?.scrollIntoView({behavior:'smooth' , block: 'center'});
 
     }, [])
