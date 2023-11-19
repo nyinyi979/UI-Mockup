@@ -11,8 +11,8 @@ export default function Gallery(){
             targets: ['#first_circle' , '#second_circle'],
             scale: 0,
             loop:false,
-            duration: 1000,
-            delay: 200,
+            duration: 700,
+            delay: 100,
             easing: 'linear',
             complete: ()=>{
               document.getElementById('blue')!.style.display = 'none';
