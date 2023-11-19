@@ -5,32 +5,37 @@ let reappear: AnimeInstance;              //animation for pop up
 let disappear: AnimeInstance;             //animation for pop up
 let scale_up: AnimeInstance;              //main scale up in pop up
 let scale_up_disappear: AnimeInstance;    //for the clicked one
-let move_left: AnimeInstance;             //to move left
-let move_right: AnimeInstance;            //to move right
-let slight_move_left: AnimeInstance;      //for flex_rows
+let move_left_f: AnimeInstance;             //to move left
+let move_right_f: AnimeInstance;            //to move right
+let move_left_s: AnimeInstance;             //to move left
+let move_right_s: AnimeInstance;            //to move right
 let main_id:string;
 let bg_color:string;
-let first_array: string[];
-let second_array: string[];
+let first_array_l:string[];
+let second_array_l:string[];
+let first_array_r:string[];
+let second_array_r:string[];
+
+let scrollPoint: number;
 //Image pop up box which data will be set before displaying
 export default function ImageBox(){
   let animated = false;
   useEffect(()=>{
     reappear = anime({
-      targets: '#containment',
+      targets: '#overlay',
       opacity: 1,
       duration: 100,
       complete: ()=>{
-        document.getElementById('containment')!.style.display = 'block';
+        document.getElementById('overlay')!.style.display = 'block';
       },
       autoplay: false
     });
     disappear = anime({
-      targets: '#containment',
+      targets: '#overlay',
       opacity: 0,
       duration: 100,
       complete: ()=>{
-        document.getElementById('containment')!.style.display = 'none';
+        document.getElementById('overlay')!.style.display = 'none';
         document.body!.style.scrollBehavior = 'auto';
       },
       autoplay: false
@@ -40,65 +45,69 @@ export default function ImageBox(){
   function exitImageView(){
     let custom_image = document.getElementById('custom_img')!;
     document.getElementById(main_id)!.style.opacity = '1';
-    scale_up.reverse();
-    scale_up.restart();
+    custom_image!.style.opacity = '0';
 
-    move_left.reverse();
-    move_right.reverse();
+    disappear.restart();
+    move_right_f.reverse();
+    move_left_f.reverse();
+    move_right_s.reverse();
+    move_left_s.reverse();
 
     scale_up_disappear.reverse();
     scale_up_disappear.restart();
 
-
+    move_left_f.restart();
+    move_left_s.restart();
+    move_right_f.restart();
+    move_right_s.restart();
     setTimeout(()=>{
-      disappear.restart();
-      move_left.restart();
-      move_right.restart();
       custom_image.classList.remove(bg_color);
-    }, 500)
+      document.getElementById('items')!.style.position = 'relative';
+      document.getElementById('items')!.scrollTo({top:scrollPoint,behavior:'smooth'})
+    }, 250)
   }
 
   return(
     <>
-    <div id="containment" className="hidden fixed overflow-y-hidden bg-black/50 cursor-pointer w-[100%] h-[100%] top-0 left-0 md:py-20 py-0 px-10 z-50" onClick={exitImageView} onSelect={(e)=>{e.preventDefault()}}>
-      <div className="grid md:grid-cols-4 grid-cols-2 gap-10">
-        <img src='/w1.png' id="custom_img" className="col-span-2 block cursor-pointer rounded-lg w-[30vh] h-[30vh] mx-auto mt-[9.5vh] ml-[27vh]"/>
+    <div id="overlay" className="hidden fixed bg-black/50 cursor-pointer w-[100%] h-[100%] top-0 left-0 lg:py-20 py-0 px-10 z-50" onClick={exitImageView} onSelect={(e)=>{e.preventDefault()}}>
+      <div className="grid lg:grid-cols-4 grid-cols-2 gap-10">
+        <img src='/w1.png' id="custom_img" className="col-span-2 block cursor-pointer rounded-lg lg:w-[176px] lg:h-[176px] md:w-[156px] md:h-[156px] h-[128px] w-[128px] mx-auto ml-[70px] mt-[22px]"/>
 
-        <div className="w-5/6 h-full col-span-2 md:mt-0 mt-72">
-          <h1 id="name" className="text-left text-3xl p-4 mb-10 ">FluffyHugs #ID</h1>
-          <div className="grid grid-cols-2 gap-2 overflow-scroll">
+        <div className="w-full col-span-2 z-40">
+          <h1 id="name" className="text-left w-full text-3xl p-2 lg:mt-0 mt-44">FluffyHugs #ID</h1>
+          <div id="scroll" className="grid grid-cols-2 gap-2 lg:h-full h-72 overflow-y-scroll overscroll-contain pb-10">
             
             <div className="flex flex-col">
-              <div className="w-full h-24 px-7 py-3 m-5 rounded-lg bg-[#a3a3a33b] leading-8 text-center">
+              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d1" className="text-sm text-gray-300 py-1">Hello</h2>
-                <h2 id="d1_val" className="text-lg py-1">Lorem Ipusm</h2>
+                <h2 id="d1_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full h-24 px-7 py-3 m-5 rounded-lg bg-[#a3a3a33b] leading-8 text-center">
+              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d2" className="text-sm text-gray-300 py-1">Hello</h2>
-                <h2 id="d2_val" className="text-lg py-1">Lorem Ipusm</h2>
+                <h2 id="d2_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full h-24 px-7 py-3 m-5 rounded-lg bg-[#a3a3a33b] leading-8 text-center">
+              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d3" className="text-sm text-gray-300 py-1">Hello</h2>
-                <h2 id="d3_val" className="text-lg py-1">Lorem Ipusm</h2>
+                <h2 id="d3_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full h-24 px-7 py-3 m-5 rounded-lg bg-[#a3a3a33b] leading-8 text-center">
+              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d8" className="text-sm text-gray-300 py-1">Hello</h2>
-                <h2 id="d8_val" className="text-lg py-1">Lorem Ipusm</h2>
+                <h2 id="d8_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
             </div>
 
             <div className="flex flex-col">
-              <div className="w-full h-24 px-7 py-3 m-5 rounded-lg bg-[#d8d8d825] leading-8 text-center">
+              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d4" className="text-sm text-gray-300 py-1">Hello</h2>
-                <h2 id="d4_val" className="text-lg py-1">Lorem Ipusm</h2>
+                <h2 id="d4_val" className="lg:text-lg text-sm py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full h-24 px-7 py-3 m-5 rounded-lg bg-[#d8d8d825] leading-8 text-center">
+              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d5" className="text-sm text-gray-300 py-1">Hello</h2>
-                <h2 id="d5_val" className="text-lg py-1">Lorem Ipusm</h2>
+                <h2 id="d5_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
-              <div className="w-full h-24 px-7 py-3 m-5 rounded-lg bg-[#d8d8d825] leading-8 text-center">
+              <div className="w-full lg:h-24 h-16 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
                 <h2 id="d6" className="text-sm text-gray-300 py-1">Hello</h2>
-                <h2 id="d6_val" className="text-lg py-1">Lorem Ipusm</h2>
+                <h2 id="d6_val" className="lg:text-lg text-sm  py-1">Lorem Ipusm</h2>
               </div>
             </div>
 
@@ -113,22 +122,16 @@ export default function ImageBox(){
 type props = {d_1:string , d_2:string , d_3:string , d_4: string, d_5: string, d_6: string, d_1_val:string , d_2_val:string , d_3_val:string , d_4_val: string, d_5_val: string, d_6_val: string,}
 export function setValue( gridID:string , imgPath:string, bg:string ,data?: props ){
 
-  let {offsetLeft , offsetTop, parentElement } = document.getElementById(gridID)!
-  console.log(offsetLeft , gridID);
+  
   document.getElementById(gridID)!.scrollIntoView({behavior: 'smooth', block: 'center'});
   bg_color = bg;
-  slight_move_left = anime({
-    targets: `#items`,
-    translateX: offsetLeft - (offsetLeft * 2) + 250,
-    delay: anime.stagger(100),
-    duration: 400,
-    easing: 'easeInOutQuad',
-  })
   let custom_image = document.getElementById('custom_img')!;
   custom_image.setAttribute('src', imgPath);
   custom_image.classList.add(bg_color);
-    AddAnimation(gridID );
-
+  console.log(window.innerWidth)
+  if(window.innerWidth >= 1024) AddAnimation(gridID);
+  else if(window.innerWidth >= 720 && window.innerWidth < 1024) AddAnimationMiddleScreen(gridID)
+  else AddAnimationSmallScreen(gridID);
     if(data){
         //setting DATA, if you wants to:)
       document.getElementById('d_1')!.innerText = data.d_1;
@@ -149,49 +152,248 @@ export function setValue( gridID:string , imgPath:string, bg:string ,data?: prop
 
 function AddAnimation(id: string ){
   let ids = Number(id.split('_')[1]);
-  first_array = [`#grid_${ids+1}` ,`#grid_${ids+2}` ,`#grid_${ids+3}` ,`#grid_${ids+4}` ,`#grid_${ids+5}` ,`#grid_${ids+6}`];
-  second_array = [`#grid_${ids-1}`,`#grid_${ids+28}`,`#grid_${ids+29}`,`#grid_${ids+30}` ,`#grid_${ids+31}`,`#grid_${ids-29}`,`#grid_${ids-30}`, `#grid_${ids-31}`,  `#grid_${ids-32}` ] 
-  console.log(first_array , second_array)
+  first_array_r = [`#grid_${ids-30}` ,`#grid_${ids-29}`,`#grid_${ids-28}`,`#grid_${ids-27}`,`#grid_${ids-26}`,`#grid_${ids-25}`]
+  second_array_r = [`#grid_${ids+1}`,`#grid_${ids+2}`,`#grid_${ids+3}`,`#grid_${ids+4}`,`#grid_${ids+5}`,
+  `#grid_${ids+31}`,`#grid_${ids+32}`,`#grid_${ids+33}`,`#grid_${ids+34}`,`#grid_${ids+35}`]
+  first_array_l = [`#grid_${ids+30}`, `#grid_${ids+29}`, `#grid_${ids+28}`];
+  second_array_l = [`#grid_${ids-1}`,`#grid_${ids-2}`,`#grid_${ids-3}`,`#grid_${ids-31}`,`#grid_${ids-32}`,`#grid_${ids-33}`]
+
+  main_id = id;
+
+  setTimeout(()=>{
+    reappear.restart()
+  }, 600)
+
+  let { offsetLeft , parentElement } = document.getElementById(id)!
+  let offsetTop = parentElement!.offsetTop
+  document.getElementById(`grid_${ids+30}`)!.scrollIntoView({behavior: 'smooth', block: 'center'});
+  document.getElementById('items')!.style.position = 'fixed';
+  scrollPoint = offsetTop - (offsetTop * 2) + 270;
+
+  //scrolling top and left
+  anime({
+    targets: `#items`,
+    left: offsetLeft - (offsetLeft * 2) + 250,
+    top: `${offsetTop - (offsetTop * 2) + 260}px`,
+    delay: anime.stagger(100),
+    duration: 400,
+    easing: 'easeInOutQuad',
+  })
+  scale_up_disappear = anime({
+    targets: `#${main_id}`,
+    scale: 2,
+    rotate: -15,
+    delay: 150,
+    duration: 500,
+    autoplay: true,
+    easing: 'linear'
+  })
+
+  move_right_f = anime({
+    targets: first_array_r,
+    translateX: 370,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_left_f = anime({
+    targets: first_array_l,
+    translateX: -365,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_right_s = anime({
+    targets: second_array_r,
+    translateX: 190,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_left_s = anime({
+    targets: second_array_l,
+    translateX: -185,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
+  scale_up = anime({
+    targets: `#custom_img`,
+    scale: 2, 
+    translateY : 80,
+    translateX: 69.6,
+    rotate: -15,
+    duration: 100,
+    delay: 180,
+    begin: ()=>{
+      document.getElementById('custom_img')!.style.opacity = '1';
+    },
+    easing: 'linear'
+  })
+  // 33 |34 |35| 36| 35 34 33
+  // 53 |54 |55| 56| 55 54 53
+  // 73 |74 |75| 76| 75 74 73
+}
+function AddAnimationSmallScreen(id: string ){
+  let ids = Number(id.split('_')[1]);
+  first_array_r = [`#grid_${ids-30}` ,`#grid_${ids-29}`,`#grid_${ids-28}`,`#grid_${ids-27}`,`#grid_${ids-26}`,`#grid_${ids-25}`]
+  second_array_r = [`#grid_${ids+1}`,`#grid_${ids+2}`,`#grid_${ids+3}`,`#grid_${ids+4}`,`#grid_${ids+5}`,
+  `#grid_${ids+31}`,`#grid_${ids+32}`,`#grid_${ids+33}`,`#grid_${ids+34}`,`#grid_${ids+35}`]
+  first_array_l = [`#grid_${ids+30}`, `#grid_${ids+29}`, `#grid_${ids+28}`];
+  second_array_l = [`#grid_${ids-1}`,`#grid_${ids-2}`,`#grid_${ids-3}`,`#grid_${ids-31}`,`#grid_${ids-32}`,`#grid_${ids-33}`]
+
   main_id = id;
   setTimeout(()=>{
     reappear.restart()
   }, 500)
+
+  let { offsetLeft , parentElement } = document.getElementById(id)!
+  let offsetTop = parentElement!.offsetTop
+  document.getElementById(`grid_${ids+30}`)!.scrollIntoView({behavior: 'smooth', block: 'center'});
+  document.getElementById('items')!.style.position = 'fixed';
+  //scroll top and left
+  anime({
+    targets: `#items`,
+    left: offsetLeft - (offsetLeft * 2) + 200,
+    top: `${offsetTop - (offsetTop * 2) + 150}px`,
+    delay: anime.stagger(100),
+    duration: 400,
+    easing: 'easeInOutQuad',
+  })
   scale_up_disappear = anime({
     targets: `#${main_id}`,
-    scale: 2.3,
+    scale: 1.8,
     rotate: -15,
-    delay: 250,
-    duration: 800,
+    delay: 150,
+    duration: 500,
     autoplay: true,
+    easing: 'linear'
   })
-  move_right = anime({
-    targets: first_array,
-    translateX: '27vh',
-    duration: 700,
-    delay: 100,
+  move_right_f = anime({
+    targets: first_array_r,
+    translateX: 270,
+    duration: 400,
     autoplay: true,
+    easing: 'linear'
   })
-  move_left = anime({
-    targets: second_array,
-    translateX: '-81vh',
-    duration: 700,
-    delay: 100,
+  move_right_s = anime({
+    targets: second_array_r,
+    translateX: 135,
+    duration: 400,
     autoplay: true,
-  });
+    easing: 'linear'
+  })
+  move_left_f = anime({
+    targets: first_array_l,
+    translateX: -270,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_left_s = anime({
+    targets: second_array_l,
+    translateX: -135,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
 
   scale_up = anime({
     targets: `#custom_img`,
-    scale: 2 , 
-    translateY : '7.3vh',
-    translateX: '.5vh',
+    scale: 1.8, 
+    translateY : 72,
+    translateX: 50,
     rotate: -15,
-    duration: 800,
+    duration: 650,
     delay: 200,
     begin: ()=>{
       document.getElementById('custom_img')!.style.opacity = '1';
-    },
-    complete: ()=>{
-      document.body!.style.scrollBehavior = 'hidden';
+    }
+  })
+  // 33 |34 |35| 36| 35 34 33
+  // 53 |54 |55| 56| 55 54 53
+  // 73 |74 |75| 76| 75 74 73
+}
+function AddAnimationMiddleScreen(id: string ){
+  let ids = Number(id.split('_')[1]);
+  first_array_r = [`#grid_${ids-30}` ,`#grid_${ids-29}`,`#grid_${ids-28}`,`#grid_${ids-27}`,`#grid_${ids-26}`,`#grid_${ids-25}`]
+  second_array_r = [`#grid_${ids+1}`,`#grid_${ids+2}`,`#grid_${ids+3}`,`#grid_${ids+4}`,`#grid_${ids+5}`,
+  `#grid_${ids+31}`,`#grid_${ids+32}`,`#grid_${ids+33}`,`#grid_${ids+34}`,`#grid_${ids+35}`]
+  first_array_l = [`#grid_${ids+30}`, `#grid_${ids+29}`, `#grid_${ids+28}`];
+  second_array_l = [`#grid_${ids-1}`,`#grid_${ids-2}`,`#grid_${ids-3}`,`#grid_${ids-31}`,`#grid_${ids-32}`,`#grid_${ids-33}`]
+
+  
+  main_id = id;
+  setTimeout(()=>{
+    reappear.restart()
+  }, 500)
+
+  let { offsetLeft , parentElement } = document.getElementById(id)!
+  let offsetTop = parentElement!.offsetTop
+  document.getElementById(`grid_${ids+31}`)!.scrollIntoView({behavior: 'smooth', block: 'center'});
+  document.getElementById('items')!.style.position = 'fixed';
+  //scroll top and left
+  anime({
+    targets: `#items`,
+    left: offsetLeft - (offsetLeft * 2) + 300,
+    top: `${offsetTop - (offsetTop * 2) + 150}px`,
+    delay: anime.stagger(100),
+    duration: 400,
+    easing: 'easeInOutQuad',
+  })
+  anime({
+    targets: '#text',
+    opacity: 0.8,
+    duration: 600
+  })
+  scale_up_disappear = anime({
+    targets: `#${main_id}`,
+    scale: 1.8,
+    rotate: -15,
+    delay: 150,
+    duration: 500,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_right_f = anime({
+    targets: first_array_r,
+    translateX: 323,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_right_s = anime({
+    targets: second_array_r,
+    translateX: 160,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_left_f = anime({
+    targets: first_array_l,
+    translateX: -323,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_left_s = anime({
+    targets: second_array_l,
+    translateX: -160,
+    duration: 400,
+    autoplay: true,
+    easing: 'linear'
+  })
+
+  scale_up = anime({
+    targets: `#custom_img`,
+    scale: 1.86, 
+    translateY : 70,
+    translateX: 105,
+    rotate: -15,
+    duration: 650,
+    delay: 200,
+    begin: ()=>{
+      document.getElementById('custom_img')!.style.opacity = '1';
     }
   })
   // 33 |34 |35| 36| 35 34 33

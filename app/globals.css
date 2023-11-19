@@ -23,10 +23,9 @@ body , html{
 ::-webkit-scrollbar{
   display:none
 }
-#containment::-webkit-scrollbar{
+#overlay::-webkit-scrollbar{
   display: block !important;
 }
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -69,22 +68,24 @@ body {
 #flex_1, #flex_3, #flex_5 , #flex_7 , #flex_9 , #flex_11 , #flex_13, #flex_15 , #flex_17 , #flex_19
 ,#flex_21, #flex_23, #flex_25 , #flex_27 , #flex_29, #flex_31, #flex_33, #flex_35 , #flex_37 , #flex_39,
 #flex_41, #flex_43, #flex_45 , #flex_47 , #flex_49{
-  animation: move_right 1500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: move_right 1800ms cubic-bezier(0.075, 0.82, 0.165, 1);
   transform: translateX(0rem);
+  opacity: 1;
 }
 @keyframes move_right {
-  from { transform: translateX(-170rem);}
-  to { transform: translateX(0rem)}
+  from { transform: translateX(-170rem); opacity: .5;}
+  to { transform: translateX(0rem); opacity: 1;}
 }
 #flex_2, #flex_4 , #flex_6, #flex_8 , #flex_10 , #flex_12 , #flex_14 , #flex_16 , #flex_18 , #flex_20,
 #flex_22, #flex_24 , #flex_26, #flex_28 , #flex_30 ,#flex_32, #flex_34 , #flex_36, #flex_38 , #flex_40,
 #flex_42, #flex_44 , #flex_46, #flex_48 , #flex_50  {
-  animation: move_left 1500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: move_left 1800ms cubic-bezier(0.075, 0.82, 0.165, 1);
   transform: translateX(0rem);
+  opacity: 1;
 }
 @keyframes move_left {
-  from { transform: translateX(170rem);}
-  to { transform: translateX(0rem)}
+  from { transform: translateX(170rem);opacity: .5;}
+  to { transform: translateX(0rem);opacity: 1;}
 }
 .bounceUp{
   animation: bounceUp 1000ms ease-in-out infinite ;
@@ -106,20 +107,22 @@ body {
   0%, 100% {transform: translateY(-50px);}
   50% { transform: translateY(0);}
 }
-.blue{
+#blue{
   width: 20rem;
   height: 10rem;
   background-size: cover;
 }
 
 #loading{
-  width: 100%;
-  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  background-position: -100px;
   background-image: url('/she.gif');
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
+}
+#container{
+  transform: trnaslateY(-30rem);
 }

@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react"
 import Image from "next/image";
 import ImageBox, { setValue } from "./setValue";
-import { AnimeInstance } from "animejs";
 import NavBar from "./navbar";
+import anime from "animejs";
 
-const rows = new Array(40);
-rows.fill(1);
-const rowss = new Array(30);
-rowss.fill(1);
 const items: React.ReactNode[] = [];
 const white: React.ReactNode[] = [];
 
@@ -62,7 +58,7 @@ let images = ['/w1.png' , '/w2.png' , '/1.png' , '/2.png' , '/3.png' , '/4.png',
 
  let bg = ['bg-white' , 'bg-gray-500' ,  'bg-gray-950' , 'bg-red-500' , 'bg-red-950' , 'bg-blue-500' , 'bg-blue-950' , 'bg-stone-500' , 'bg-stone-950' , 
  'bg-yellow-500' ,'bg-yellow-950' , 'bg-amber-500' , 'bg-amber-950' , 'bg-lime-500' , 'bg-lime-950' , 'bg-green-500' , 'bg-green-950'];
-let imgClass = 'cursor-pointer rounded-md w-[30vh] m-[0.5vh] h-[26vh] bg-cover z-100';
+let imgClass = 'cursor-pointer rounded-md lg:w-[176px] lg:h-[176px] md:w-[156px] md:h-[156px] h-[128px] w-[128px] m-[3px] bg-cover z-100';
 
 function ProduceImageRandom(){
   let arr = [];
@@ -70,7 +66,7 @@ function ProduceImageRandom(){
     let _index:number = Math.floor(Math.random() * images.length);
     let img_id = 'grid_' + img;
     img += 1;
-    arr.push(<Image src={images[_index]} key={img_id} id={img_id} alt="pic" width={250} height={200}  onClick={()=>{setValue( img_id , images[_index] , bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} />
+    arr.push(<Image src={images[_index]} key={img_id} id={img_id} alt="pic" width={200} height={200}  onClick={()=>{setValue( img_id , images[_index] , bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} priority={true}/>
     )
   }
   return arr;
@@ -111,17 +107,20 @@ function ProduceImageWithDirection(images_: string[]){
 export default function AllDogs(){
   let [loading , setLoading] = useState(true);
     useEffect(()=>{
-       for(var i = 0; i<40; i++){
+      document.getElementById('loading')!.style.display = 'block'
+       for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex}`;
         flex+= 1;
         let Items = ProduceImageRandom();
         items.push(
-          <div id={flex_id} key={flex_id} className="flex flex-row w-fit">
+          <div id={flex_id} key={flex_id} className="flex flex-row ">
               {Items}
           </div>
         )
       }
-
+      document.getElementById('loading')!.style.display = 'none'
+      setLoading(false);
+      return;
       //white
       flex_w = 0;
        for(var i = 0; i<40; i++){
@@ -135,7 +134,6 @@ export default function AllDogs(){
           </div>
         )
       }
-      
       //gray
       for(var i = 0; i<40; i++){
         let flex_id =  `flex_${flex_g}`;
@@ -635,10 +633,36 @@ export default function AllDogs(){
       setLoading(false);
 
     }, [])
+
+    useEffect(()=>{
+      anime({
+        targets: ['#first_circle' , '#second_circle'],
+        scale: 1,
+        loop:false,
+        duration: 1500,
+        delay: 100,
+        easing: 'easeInOutQuad',
+        opacity: 1,
+        autoplay: true,
+        changeBegin: ()=>{
+          document.getElementById('first_circle')!.style.backgroundColor = 'black'
+          document.getElementById('second_circle')!.style.backgroundColor = 'black'
+        },
+        complete: ()=>{
+          document.getElementById('blue')!.style.display = 'none';
+          document.getElementById('top')!.style.opacity = '1';
+          document.getElementById('text')!.style.opacity = '1';
+        }
+    });
+    document.getElementById('loading')!.style.display = 'none';
+    document.getElementById('flex_14')?.scrollIntoView({behavior:'smooth' , block: 'center'});
+
+    }, [])
     return (
-    <div id="container" className="bg-black w-full h-fit max-w-full" style={{width:'100%'}}>
-      <NavBar />
-      {loading? '': 
+    <div id="container" className="bg-black w-full h-fit max-w-full overflow-x-hidden" style={{width:'100%'}}>
+      
+      <div id="loading"></div>
+      {loading? '' : 
       <>
         <div id="items" className="">
           <div id="all_items" className="">{items} </div>
@@ -689,8 +713,42 @@ export default function AllDogs(){
       </>
       }
       <ImageBox />
-      
+      {/* <NavBar /> */}
+      <div id="text" className='fixed top-16 md:left-[4.5rem] opacity-0 left-[4rem] font-extrabold text-white z-40 md:text-7xl text-4xl'> Fluffy Hugs</div>
+      <div id="top" className="z-30 fixed right-[6rem] top-28 opacity-0 border-white border-2 rounded-full cursor-pointer hover:bg-black/95 px-8 py-2" onClick={animate}>Top</div>
+      <div id="blue" className="z-100 fixed right-0 bottom-0 cursor-pointer">
+          <div id="first_circle" className="two_circles  absolute opacity-1 -bottom-5 -right-3 w-32 h-32 rotate-[40deg]" style={{borderRadius:'4rem 4rem 0 0',transform:'scale(35)'}}></div>
+          <div id="second_circle" className="two_circles absolute opacity-1 -bottom-7 right-20 w-24 h-24 rotate-3" style={{borderRadius:'5rem 4rem 0 5rem',transform:'scale(35)'}}></div>
+      </div>
     </div>
     )
 }
 
+let flex_array = ['#flex_1', '#flex_3', '#flex_5' , '#flex_7' , '#flex_9' , '#flex_11' , '#flex_13', '#flex_15' ,' #flex_17' , '#flex_19'
+  ,'#flex_21', '#flex_23', '#flex_25' , '#flex_27' , '#flex_29', '#flex_31', '#flex_33', '#flex_35' , '#flex_37 ', '#flex_39',
+  '#flex_41', '#flex_43', '#flex_45' ,' #flex_47' , '#flex_49']
+function animate(){
+  anime({
+      targets: ['#first_circle' , '#second_circle'],
+      scale: 35,
+      loop:false,
+      duration: 700,
+      easing: 'easeInOutQuad',
+      opacity: 1,
+      begin: ()=>{
+          document.getElementById('blue')!.style.display = 'block'
+      },
+      changeBegin: ()=>{
+          document.getElementById('first_circle')!.style.backgroundColor = 'black'
+          document.getElementById('second_circle')!.style.backgroundColor = 'black'
+      }
+  });
+  setTimeout(()=>{
+      window.location.assign('/')
+  }, 400)
+
+  anime({
+    targets: flex_array,
+    translateX: '-170rem'
+  })
+}

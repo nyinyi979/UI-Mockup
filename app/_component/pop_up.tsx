@@ -5,6 +5,8 @@ import { SlPicture } from "react-icons/sl";
 import { TfiDirectionAlt } from "react-icons/tfi";
 import { BiSolidDirectionLeft } from "react-icons/bi";
 import { GiMultiDirections } from "react-icons/gi";
+let icon_class = "cursor-pointer text-black ml-3 text-4xl hover:scale-110 scale-100 duration-300 h-12"
+
 export function Dogs(){
     let images = ['/w1.png' , '/w2.png' , '/w3.png' , '/w4.png' , '/w5.png', '/w6.png', '/b1.png', '/3.png' , '/4.png',
     '/b2.png', '/b3.png', '/b4.png', '/b6.png', '/b7.png', '/b8.png', '/b9.png', '/b10.png' , '/1.png' , '/2.png'];
@@ -40,8 +42,8 @@ export function Dogs(){
     return(
         <>
         <div className="dropdown dropdown-right relative m-0" onClick={()=>{}}>
-          <label tabIndex={0} className="border-none outline-none px-2 py-2">
-            <BiSolidDog className="cursor-pointer text-black ml-3 hover:scale-110 scale-100 duration-300 " style={{fontSize:'2.5rem'}}/> 
+          <label tabIndex={0} className="border-none outline-none px-2 -my-2">
+            <BiSolidDog className={icon_class}/> 
             {chosen === '' ? '' : <img src={chosen} alt="img" width={60} height={60} className="absolute block left-1 top-6 z-30  bg-white w-12 h-12 rounded-md cursor-pointer"/>}
           </label>
           <ul id="d1" tabIndex={0} className="dropdown-content right-0 z-[1] grid grid-cols-5 gap-5 p-7 shadow bg-black rounded-box w-[25rem]">
@@ -89,8 +91,8 @@ export function Bg(){
     return(
         <>
         <div className="dropdown dropdown-right relative" onClick={()=>{}}>
-          <label tabIndex={0} className=" border-none outline-none">
-            <SlPicture className="cursor-pointer text-black ml-3 hover:scale-110 scale-100 duration-300" style={{fontSize:'2.5rem'}}/> 
+          <label tabIndex={0} className=" border-none outline-none -my-2">
+            <SlPicture className={icon_class}/> 
             {chosen === '' ? '' : <div className={`absolute block left-2 top-0 ${chosen} z-30 border-black border-2  w-12 h-12 rounded-md cursor-pointer`}/>}
           </label>
           <ul id="d2" tabIndex={0} className="dropdown-content right-0 z-[1] grid grid-cols-5 gap-5 p-7 shadow bg-black rounded-box w-[25rem]">
@@ -134,8 +136,8 @@ export function Direction(){
   return(
       <>
       <div className="dropdown dropdown-right relative mt-5" onClick={()=>{}}>
-        <label tabIndex={0} className=" border-none outline-none">
-          <TfiDirectionAlt className="cursor-pointer text-black ml-3 hover:scale-110 scale-100 duration-300" style={{fontSize:'2.5rem'}}/> 
+        <label tabIndex={0} className=" border-none outline-none -py-2">
+          <TfiDirectionAlt className={icon_class}/> 
           {chosen === '' ? '' : chosen === 'left'?  
             <BiSolidDirectionLeft className={`absolute block left-2 top-0  ${chosen} bg-black  z-30 border-black border-2  w-12 h-12 rounded-md cursor-pointer`}/> 
           : <BiSolidDirectionRight className={`absolute block left-2 top-0 ${chosen} bg-black z-30 border-black border-2  w-12 h-12 rounded-md cursor-pointer`}/>}
