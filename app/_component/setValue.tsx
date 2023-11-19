@@ -77,7 +77,7 @@ export default function ImageBox(){
 
         <div className="w-full col-span-2 z-40">
           <h1 id="name" className="text-left w-full text-3xl p-2 lg:mt-0 mt-44">FluffyHugs #ID</h1>
-          <div id="scroll" className="grid grid-cols-2 md:gap-1 gap-0 h-72 overflow-y-scroll overscroll-contain scrollbar scrollbar-w-1 scrollbar-thumb-rounded-sm scrollbar-thumb-sky-200 scrollbar-track-transparent pb-10">
+          <div id="scroll" className="grid grid-cols-2 md:gap-1 gap-0 h-96 md:h-full overflow-y-scroll overscroll-contain scrollbar scrollbar-w-1 scrollbar-thumb-rounded-sm scrollbar-thumb-sky-200 scrollbar-track-transparent pb-10">
             
             <div className="flex flex-col">
               <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
@@ -197,14 +197,14 @@ function AddAnimation(id: string ){
 
   move_right_f = anime({
     targets: first_array_r,
-    translateX: 370,
+    translateX: 365,
     duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_f = anime({
     targets: first_array_l,
-    translateX: -365,
+    translateX: -355,
     duration: 500,
     autoplay: true,
     easing: 'linear'
@@ -213,14 +213,14 @@ function AddAnimation(id: string ){
 
   move_right_s = anime({
     targets: second_array_r,
-    translateX: 190,
+    translateX: 182,
     duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_s = anime({
     targets: second_array_l,
-    translateX: -185,
+    translateX: -165,
     duration: 500,
     autoplay: true,
     easing: 'linear'

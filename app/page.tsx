@@ -15,7 +15,7 @@ export default function LandingPage(){
             easing: 'linear',
             opacity: 1,
             autoplay: true,
-            changeBegin: ()=>{
+            changeComplete: ()=>{
                 document.getElementById('first_circle')!.style.backgroundColor = '#4133ff'
                 document.getElementById('second_circle')!.style.backgroundColor = '#4133ff'
             },
@@ -25,13 +25,15 @@ export default function LandingPage(){
             }
         });
         document.getElementById('loading')!.style.display = 'none';
+        document.getElementById('loading_small')!.style.display = 'none';
     }, [])
     return(
         <div className="relative bg-amber-200 w-[100%] h-[100vh]  overflow-hidden">
             
-        <div id="loading" className="w-[70vh] md:w-[160vh] lg:w-[200vh] h-[100%] "></div>
+        <div id="loading" className="md:block md:w-[160vh] lg:w-[200vh] h-[100%] hidden"></div>
+        <div id="loading_small" className="w-[100vh] md:w-[160vh] lg:w-[200vh] h-[100%] md:hidden block"></div>
         <div className='fixed top-16 left-20 font-extrabold text-blue-700 z-40 lg:text-7xl text-3xl'>
-            Fluffy Hugs
+            Fluffy Dogs
         </div>
         <div id="imgs">
             <Image src={'/a1.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[-300px] left-[-100px]"/>
@@ -59,6 +61,15 @@ export default function LandingPage(){
             <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[70%]"/>
             <Image src={'/a3.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[30%]"/>
             <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[10%]"/>
+            
+            <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[300px] left-[10%]"/>
+            <Image src={'/a3.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[350px] left-[-10%]"/>
+            <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[300px] left-[20%]"/>
+            <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[350px] left-[65%]"/>
+            <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[300px] left-[34%]"/>
+            <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[350px] left-[44%]"/>
+            <Image src={'/a3.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[350px] left-[80%]"/>
+            <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[300px] left-[100%]"/>
         </div>
             
 
