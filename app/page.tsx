@@ -29,7 +29,7 @@ export default function LandingPage(){
     return(
         <div className="relative bg-amber-200 w-[100%] h-[100vh]  overflow-hidden">
             
-        <div id="loading" className="w-[80vh] md:w-[160vh] lg:w-[200vh] h-[100%] "></div>
+        <div id="loading" className="w-[70vh] md:w-[160vh] lg:w-[200vh] h-[100%] "></div>
         <div className='fixed top-16 left-20 font-extrabold text-blue-700 z-40 lg:text-7xl text-3xl'>
             Fluffy Hugs
         </div>

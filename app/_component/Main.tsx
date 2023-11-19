@@ -254,7 +254,7 @@ export default function AllDogs(){
     <div id="container" className="bg-black w-full h-fit max-w-full overflow-x-hidden" style={{width:'100%'}}>
     
       {loading?
-          <div id="loading" className="lg:w-[200vh] md:w-[150vh] w-[100vh] h-[100vh] md:left-0 -left-20 top-0 bg-white" ></div>
+          <div id="loading" className="lg:w-[200vh] md:w-[150vh] w-[70vh] h-[100vh] md:left-0 -left-20 top-0 bg-white" ></div>
         : 
       <>
         <div id="items" className="opacity-50">
