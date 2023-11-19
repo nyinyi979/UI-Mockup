@@ -35,7 +35,7 @@ export default function Gallery(){
             <ImageBox />
             <NavBar />
       <div id="black_overlay"></div>
-      <div id="text" className='fixed top-16 md:left-[4.5rem] opacity-0 left-[3rem] font-extrabold text-white z-40 md:text-7xl text-5xl'> Fluffy Dogs</div>
+      <div id="text" className='fixed top-16 md:left-[4.5rem] opacity-0 left-[3rem] font-extrabold text-white z-40 md:text-7xl text-3xl'> Fluffy Dogs</div>
         </div>
     )
 }
