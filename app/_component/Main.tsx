@@ -77,7 +77,7 @@ function ProduceImageWithBG(bg_color:string){
     let _index:number = Math.floor(Math.random() * images.length);
     let img_id = 'grid_' + img;
     img += 1;
-    arr.push(<Image src={images[_index]} key={img_id} id={img_id} alt="pic" width={250} height={200}  onClick={()=>{setValue( img_id , images[_index], bg_color ); }}  className={`${imgClass} ${bg_color}`} />)
+    arr.push(<Image src={images[_index]} key={img_id} id={img_id} alt="pic" width={200} height={200}  onClick={()=>{setValue( img_id , images[_index], bg_color ); }}  className={`${imgClass} ${bg_color}`} />)
   }
   return arr;
 }
@@ -87,7 +87,7 @@ function ProduceImageWithSrc(src: string){
     let _index:number = Math.floor(Math.random() * images.length);
     let img_id = 'grid_' + img;
     img += 1;
-    arr.push(<Image src={src} key={img_id} id={img_id} alt="pic" width={250} height={200}  onClick={()=>{setValue( img_id , src, bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} />)
+    arr.push(<Image src={src} key={img_id} id={img_id} alt="pic" width={200} height={200}  onClick={()=>{setValue( img_id , src, bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} />)
   }
   return arr;
 }
@@ -99,7 +99,7 @@ function ProduceImageWithDirection(images_: string[]){
     let img_id = 'grid_' + img;
     img += 1;
     arr.push(
-      <Image src={images_[_indexImg]} key={img_id} id={img_id} alt="pic" width={250} height={200}  onClick={()=>{setValue( img_id , images_[_indexImg], bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} />
+      <Image src={images_[_indexImg]} key={img_id} id={img_id} alt="pic" width={20} height={200}  onClick={()=>{setValue( img_id , images_[_indexImg], bg[_index] ); }}  className={`${imgClass} ${bg[_index]}`} />
     )
   }
   return arr;
@@ -118,9 +118,6 @@ export default function AllDogs(){
           </div>
         )
       }
-      document.getElementById('loading')!.style.display = 'none'
-      setLoading(false);
-      return;
       //white
       flex_w = 0;
        for(var i = 0; i<40; i++){
@@ -713,7 +710,7 @@ export default function AllDogs(){
       </>
       }
       <ImageBox />
-      {/* <NavBar /> */}
+      <NavBar />
       <div id="text" className='fixed top-16 md:left-[4.5rem] opacity-0 left-[4rem] font-extrabold text-white z-40 md:text-7xl text-4xl'> Fluffy Hugs</div>
       <div id="top" className="z-30 fixed right-[6rem] top-28 opacity-0 border-white border-2 rounded-full cursor-pointer hover:bg-black/95 px-8 py-2" onClick={animate}>Top</div>
       <div id="blue" className="z-100 fixed right-0 bottom-0 cursor-pointer">
