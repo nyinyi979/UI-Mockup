@@ -9,9 +9,9 @@ export default function Gallery(){
     useEffect(()=>{
         anime({
             targets: ['#first_circle' , '#second_circle'],
-            scale: 1,
+            scale: 0,
             loop:false,
-            duration: 1500,
+            duration: 1000,
             delay: 200,
             easing: 'linear',
             complete: ()=>{
@@ -39,10 +39,14 @@ export default function Gallery(){
         </div>
     )
 }
+//outro left right animation
 let flex_array = ['#flex_1', '#flex_3', '#flex_5' , '#flex_7' , '#flex_9' , '#flex_11' , '#flex_13', '#flex_15' ,' #flex_17' , '#flex_19'
   ,'#flex_21', '#flex_23', '#flex_25' , '#flex_27' , '#flex_29', '#flex_31', '#flex_33', '#flex_35' , '#flex_37 ', '#flex_39',
   '#flex_41', '#flex_43', '#flex_45' ,' #flex_47' , '#flex_49']
-
+  let flex_array2 = ['#flex_2', '#flex_4', '#flex_6' , '#flex_8' , '#flex_10' , '#flex_12' , '#flex_14', '#flex_16' ,' #flex_18' , '#flex_20'
+    ,'#flex_22', '#flex_24', '#flex_26' , '#flex_28' , '#flex_30', '#flex_32', '#flex_34', '#flex_36' , '#flex_38', '#flex_40',
+    '#flex_42', '#flex_44', '#flex_46' ,' #flex_48' , '#flex_50']
+//two circle to show after clicking top
 function animate(){
     anime({
         targets: ['#first_circle' , '#second_circle'],
@@ -66,5 +70,10 @@ function animate(){
     anime({
       targets: flex_array,
       translateX: '-170rem'
+    })
+  
+    anime({
+      targets: flex_array2,
+      translateX: '170rem'
     })
   }

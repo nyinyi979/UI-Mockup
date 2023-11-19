@@ -9,18 +9,17 @@ let move_left_f: AnimeInstance;             //to move left
 let move_right_f: AnimeInstance;            //to move right
 let move_left_s: AnimeInstance;             //to move left
 let move_right_s: AnimeInstance;            //to move right
-let scroll_top_left: AnimeInstance;
-let main_id:string;
-let bg_color:string;
-let first_array_l:string[];
-let second_array_l:string[];
-let first_array_r:string[];
+    
+let main_id:string;               //for rescaling purpose          
+let bg_color:string;              //colour of bg to remove from the pop up
+let first_array_l:string[];       //ids of the elements to be moved left
+let second_array_l:string[];      //ids of the second row elements to be moved left
+let first_array_r:string[];       //ids of the right elements 
 let second_array_r:string[];
 
-let scrollPoint: number;
+let scrollPoint: number;        //make the bg to be fixed and use this point to restore scrolling after viewing the image
 //Image pop up box which data will be set before displaying
 export default function ImageBox(){
-  let animated = false;
   useEffect(()=>{
     reappear = anime({
       targets: '#overlay',
@@ -43,6 +42,7 @@ export default function ImageBox(){
     });
   }, [])
   
+  //exit the image view to normal view, timed correctly for nice look
   function exitImageView(){
     let custom_image = document.getElementById('custom_img')!;
     document.getElementById(main_id)!.style.opacity = '1';
@@ -77,7 +77,7 @@ export default function ImageBox(){
 
         <div className="w-full col-span-2 z-40">
           <h1 id="name" className="text-left w-full text-3xl p-2 lg:mt-0 mt-44">FluffyHugs #ID</h1>
-          <div id="scroll" className="grid grid-cols-2 md:gap-1 gap-0 lg:h-full h-72 overflow-y-scroll overscroll-contain scrollbar scrollbar-w-1 scrollbar-thumb-rounded-sm scrollbar-thumb-sky-200 scrollbar-track-transparent pb-10">
+          <div id="scroll" className="grid grid-cols-2 md:gap-1 gap-0 h-72 overflow-y-scroll overscroll-contain scrollbar scrollbar-w-1 scrollbar-thumb-rounded-sm scrollbar-thumb-sky-200 scrollbar-track-transparent pb-10">
             
             <div className="flex flex-col">
               <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
@@ -122,6 +122,7 @@ export default function ImageBox(){
 }
 //type for input
 type props = {d_1:string , d_2:string , d_3:string , d_4: string, d_5: string, d_6: string, d_1_val:string , d_2_val:string , d_3_val:string , d_4_val: string, d_5_val: string, d_6_val: string,}
+//In case if there is any data to set, you can call this function from images_proudction 
 export function setValue( gridID:string , imgPath:string, bg:string ,data?: props ){
 
   document.getElementById(gridID)!.scrollIntoView({behavior: 'smooth', block: 'center'});
@@ -174,7 +175,7 @@ function AddAnimation(id: string ){
   scrollPoint = offsetTop - (offsetTop * 2) + 260;
 
   //scrolling top and left
-  scroll_top_left = anime({
+  anime({
     targets: `#items`,
     left: offsetLeft - (offsetLeft * 2) + 250,
     top: scrollPoint,
@@ -182,6 +183,7 @@ function AddAnimation(id: string ){
     duration: 400,
     easing: 'easeInOutQuad',
   })
+  //for main image
   scale_up_disappear = anime({
     targets: `#${main_id}`,
     scale: 2,
@@ -191,6 +193,7 @@ function AddAnimation(id: string ){
     autoplay: true,
     easing: 'linear'
   })
+
 
   move_right_f = anime({
     targets: first_array_r,
@@ -206,6 +209,8 @@ function AddAnimation(id: string ){
     autoplay: true,
     easing: 'linear'
   })
+
+
   move_right_s = anime({
     targets: second_array_r,
     translateX: 190,
@@ -220,6 +225,8 @@ function AddAnimation(id: string ){
     autoplay: true,
     easing: 'linear'
   })
+
+  //custom img is in the pop up box obviously
   scale_up = anime({
     targets: `#custom_img`,
     scale: 2, 
@@ -232,87 +239,6 @@ function AddAnimation(id: string ){
       document.getElementById('custom_img')!.style.opacity = '1';
     },
     easing: 'linear'
-  })
-  // 33 |34 |35| 36| 35 34 33
-  // 53 |54 |55| 56| 55 54 53
-  // 73 |74 |75| 76| 75 74 73
-}
-function AddAnimationSmallScreen(id: string ){
-  let ids = Number(id.split('_')[1]);
-  first_array_r = [`#grid_${ids-30}` ,`#grid_${ids-29}`,`#grid_${ids-28}`,`#grid_${ids-27}`,`#grid_${ids-26}`,`#grid_${ids-25}`]
-  second_array_r = [`#grid_${ids+1}`,`#grid_${ids+2}`,`#grid_${ids+3}`,`#grid_${ids+4}`,`#grid_${ids+5}`,
-  `#grid_${ids+31}`,`#grid_${ids+32}`,`#grid_${ids+33}`,`#grid_${ids+34}`,`#grid_${ids+35}`]
-  first_array_l = [`#grid_${ids+30}`, `#grid_${ids+29}`, `#grid_${ids+28}`];
-  second_array_l = [`#grid_${ids-1}`,`#grid_${ids-2}`,`#grid_${ids-3}`,`#grid_${ids-31}`,`#grid_${ids-32}`,`#grid_${ids-33}`]
-
-  main_id = id;
-  setTimeout(()=>{
-    reappear.restart()
-  }, 500)
-
-  let { offsetLeft , parentElement } = document.getElementById(id)!
-  let offsetTop = parentElement!.offsetTop
-  document.getElementById(`grid_${ids+30}`)!.scrollIntoView({behavior: 'smooth', block: 'center'});
-  document.getElementById('items')!.style.position = 'fixed';
-  scrollPoint = offsetTop - (offsetTop * 2) + 150;
-  //scroll top and left
-  anime({
-    targets: `#items`,
-    left: offsetLeft - (offsetLeft * 2) + 180,
-    top: scrollPoint,
-    delay: anime.stagger(100),
-    duration: 400,
-    easing: 'easeInOutQuad',
-  })
-  scale_up_disappear = anime({
-    targets: `#${main_id}`,
-    scale: 1.8,
-    rotate: -15,
-    delay: 150,
-    duration: 500,
-    autoplay: true,
-    easing: 'linear'
-  })
-  move_right_f = anime({
-    targets: first_array_r,
-    translateX: 270,
-    duration: 500,
-    autoplay: true,
-    easing: 'linear'
-  })
-  move_right_s = anime({
-    targets: second_array_r,
-    translateX: 135,
-    duration: 500,
-    autoplay: true,
-    easing: 'linear'
-  })
-  move_left_f = anime({
-    targets: first_array_l,
-    translateX: -270,
-    duration: 500,
-    autoplay: true,
-    easing: 'linear'
-  })
-  move_left_s = anime({
-    targets: second_array_l,
-    translateX: -135,
-    duration: 500,
-    autoplay: true,
-    easing: 'linear'
-  })
-
-  scale_up = anime({
-    targets: `#custom_img`,
-    scale: 1.8, 
-    translateY : 72,
-    translateX: 38,
-    rotate: -15,
-    duration: 650,
-    delay: 200,
-    begin: ()=>{
-      document.getElementById('custom_img')!.style.opacity = '1';
-    }
   })
   // 33 |34 |35| 36| 35 34 33
   // 53 |54 |55| 56| 55 54 53
@@ -390,13 +316,88 @@ function AddAnimationMiddleScreen(id: string ){
     translateY : 70,
     translateX: 90,
     rotate: -15,
-    duration: 650,
-    delay: 200,
+    duration: 100,
+    delay: 180,
     begin: ()=>{
       document.getElementById('custom_img')!.style.opacity = '1';
     }
   })
-  // 33 |34 |35| 36| 35 34 33
-  // 53 |54 |55| 56| 55 54 53
-  // 73 |74 |75| 76| 75 74 73
+}
+function AddAnimationSmallScreen(id: string ){
+  let ids = Number(id.split('_')[1]);
+  first_array_r = [`#grid_${ids-30}` ,`#grid_${ids-29}`,`#grid_${ids-28}`,`#grid_${ids-27}`,`#grid_${ids-26}`,`#grid_${ids-25}`]
+  second_array_r = [`#grid_${ids+1}`,`#grid_${ids+2}`,`#grid_${ids+3}`,`#grid_${ids+4}`,`#grid_${ids+5}`,
+  `#grid_${ids+31}`,`#grid_${ids+32}`,`#grid_${ids+33}`,`#grid_${ids+34}`,`#grid_${ids+35}`]
+  first_array_l = [`#grid_${ids+30}`, `#grid_${ids+29}`, `#grid_${ids+28}`];
+  second_array_l = [`#grid_${ids-1}`,`#grid_${ids-2}`,`#grid_${ids-3}`,`#grid_${ids-31}`,`#grid_${ids-32}`,`#grid_${ids-33}`]
+
+  main_id = id;
+  setTimeout(()=>{
+    reappear.restart()
+  }, 500)
+
+  let { offsetLeft , parentElement } = document.getElementById(id)!
+  let offsetTop = parentElement!.offsetTop
+  document.getElementById(`grid_${ids+30}`)!.scrollIntoView({behavior: 'smooth', block: 'center'});
+  document.getElementById('items')!.style.position = 'fixed';
+  scrollPoint = offsetTop - (offsetTop * 2) + 150;
+  //scroll top and left
+  anime({
+    targets: `#items`,
+    left: offsetLeft - (offsetLeft * 2) + 180,
+    top: scrollPoint,
+    delay: anime.stagger(100),
+    duration: 400,
+    easing: 'easeInOutQuad',
+  })
+  scale_up_disappear = anime({
+    targets: `#${main_id}`,
+    scale: 1.8,
+    rotate: -15,
+    delay: 150,
+    duration: 500,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_right_f = anime({
+    targets: first_array_r,
+    translateX: 270,
+    duration: 500,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_right_s = anime({
+    targets: second_array_r,
+    translateX: 135,
+    duration: 500,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_left_f = anime({
+    targets: first_array_l,
+    translateX: -270,
+    duration: 500,
+    autoplay: true,
+    easing: 'linear'
+  })
+  move_left_s = anime({
+    targets: second_array_l,
+    translateX: -135,
+    duration: 500,
+    autoplay: true,
+    easing: 'linear'
+  })
+
+  scale_up = anime({
+    targets: `#custom_img`,
+    scale: 1.8, 
+    translateY : 72,
+    translateX: 38,
+    rotate: -15,
+    duration: 100,
+    delay: 180,
+    begin: ()=>{
+      document.getElementById('custom_img')!.style.opacity = '1';
+    }
+  })
 }

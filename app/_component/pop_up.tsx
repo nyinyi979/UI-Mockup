@@ -12,6 +12,9 @@ let ids = ['w1.png' , 'w2.png' , 'a1.png' , 'a2.png' , 'a3.png' , 'a4.png',  'w3
 'bg-gray-950' , 'bg-red-500' , 'bg-red-950' , 'bg-blue-500' , 'bg-blue-950' , 'bg-stone-500' , 'bg-stone-950' , 
 'bg-yellow-500' ,'bg-yellow-950' , 'bg-amber-500' , 'bg-amber-950' , 'bg-lime-500' , 'bg-green-500' , 'bg-lime-950' , 'bg-green-950'
 ,'left' , 'right' , 'center','all_items']
+
+//for the dogs menu from the nav bar
+//checked with the ids for other dogs menu elements to disappear 
 export function Dogs(){
   let images = ['/w1.png' , '/w2.png' , '/a1.png' , '/a2.png' , '/a3.png' , '/a4.png',  '/w3.png' , '/w4.png' , '/w5.png', '/w6.png', '/b1.png',
    '/b2.png', '/b3.png', '/b4.png', '/b6.png', '/b7.png', '/b8.png', '/b9.png', '/b10.png'];
@@ -23,6 +26,8 @@ export function Dogs(){
     useEffect(()=>{
       let all_items = document.getElementById('all_items');
       let count = 0;
+
+      //checking if there is any overlay , the ids is an array that contain id of actual flexboxes 
       ids.map((id)=>{
         if(id === chosen) {
           console.log(chosen , id);
@@ -38,7 +43,11 @@ export function Dogs(){
         if(all_items !== null) all_items.style.display = 'block'
       }
       else {
+        //hide other chosen things 
         if(all_items !== null) all_items.style.display = 'none';
+        document.getElementById('chosen_direction')!.style.opacity = '0'
+        document.getElementById('chosen_dog')!.style.opacity = '1'
+        document.getElementById('chosen_color')!.style.opacity = '0'
       }
     }, [chosen])
     return(
@@ -46,7 +55,7 @@ export function Dogs(){
         <div className="dropdown dropdown-right relative m-0" onClick={()=>{}}>
           <label tabIndex={0} className="border-none outline-none px-2 -my-2">
             <BiSolidDog className={icon_class}/> 
-            {chosen === '' ? '' : <img src={chosen} alt="img" width={60} height={60} className="absolute block left-1 top-6 z-30  bg-white w-12 h-12 rounded-md cursor-pointer"/>}
+            {chosen === '' ? '' : <img id="chosen_dog" src={chosen} alt="img" width={60} height={60} className="absolute block left-1 top-6 z-30  bg-white w-12 h-12 rounded-md cursor-pointer"/>}
           </label>
           <ul id="d1" tabIndex={0} className="dropdown-content right-0 z-[1] grid grid-cols-5 gap-5 p-7 shadow bg-black rounded-box w-[25rem]">
                 <h2 className="col-span-5 text-center">Images</h2>
@@ -88,6 +97,9 @@ export function Bg(){
       }
       else {
         if(all_items !== null) all_items.style.display = 'none';
+        document.getElementById('chosen_direction')!.style.opacity = '0'
+        document.getElementById('chosen_dog')!.style.opacity = '0'
+        document.getElementById('chosen_color')!.style.opacity = '1'
       }
     }, [chosen])
     return(
@@ -95,7 +107,7 @@ export function Bg(){
         <div className="dropdown dropdown-right relative" onClick={()=>{}}>
           <label tabIndex={0} className=" border-none outline-none -my-2">
             <SlPicture className={icon_class}/> 
-            {chosen === '' ? '' : <div className={`absolute block left-2 top-0 ${chosen} z-30 border-black border-2  w-12 h-12 rounded-md cursor-pointer`}/>}
+            {chosen === '' ? '' : <div id="chosen_color" className={`absolute block left-2 top-0 ${chosen} z-30 border-black border-2  w-12 h-12 rounded-md cursor-pointer`}/>}
           </label>
           <ul id="d2" tabIndex={0} className="dropdown-content right-0 z-[1] grid grid-cols-5 gap-5 p-7 shadow bg-black rounded-box w-[25rem]">
                 <h2 className="col-span-5 text-center">background colors</h2>
@@ -132,7 +144,12 @@ export function Direction(){
       if(all_items !== null) all_items.style.display = 'block'
     }
     else {
-      if(all_items !== null) all_items.style.display = 'none';
+      if(all_items !== null) {
+        all_items.style.display = 'none'
+        document.getElementById('chosen_direction')!.style.opacity = '1'
+        document.getElementById('chosen_dog')!.style.opacity = '0'
+        document.getElementById('chosen_color')!.style.opacity = '0'
+      }
     }
   }, [chosen])
   return(
@@ -140,9 +157,14 @@ export function Direction(){
       <div className="dropdown dropdown-right relative mt-5" onClick={()=>{}}>
         <label tabIndex={0} className=" border-none outline-none -py-2">
           <TfiDirectionAlt className={icon_class}/> 
-          {chosen === '' ? '' : chosen === 'left'?  
-            <BiSolidDirectionLeft className={`absolute block left-2 top-0  ${chosen} bg-black  z-30 border-black border-2  w-12 h-12 rounded-md cursor-pointer`}/> 
-          : <BiSolidDirectionRight className={`absolute block left-2 top-0 ${chosen} bg-black z-30 border-black border-2  w-12 h-12 rounded-md cursor-pointer`}/>}
+          <div id="chosen_direction" className="absolute block left-2 top-0  ${chosen} bg-black  z-30 border-black border-2  w-12 h-12 rounded-md cursor-pointer">
+            {chosen === '' ? '' : chosen === 'left'?  
+              <BiSolidDirectionLeft/> 
+            : chosen === 'center'? 
+            <GiMultiDirections />
+            : <BiSolidDirectionRight/>
+            }
+          </div>
         </label>
         <ul id="d3" tabIndex={0} className="dropdown-content right-0 z-[1] grid grid-cols-5 gap-5 p-7 shadow bg-black rounded-box w-[25rem]">
             <h2 className="col-span-5 text-center">direction</h2>

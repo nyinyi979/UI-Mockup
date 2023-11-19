@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react"
-import Image from "next/image";
-import ImageBox, { setValue } from "./setValue";
-import NavBar from "./navbar";
-import anime from "animejs";
-import { ProduceImageRandom, ProduceImageWithBG, ProduceImageWithDirection , ProduceImageWithSrc, bg } from "./images_production";
+import { ProduceImageRandom, ProduceImageWithDirection , bg } from "./images_production";
 import dynamic from "next/dynamic";
 
 const items: React.ReactNode[] = [];
@@ -14,6 +10,7 @@ let left: React.ReactNode[] = [];
 let right: React.ReactNode[] = [];
 let center: React.ReactNode[] = [];
 let flexLeft = 1 , flexRight = 1, flexCenter = 1;
+//all of the elements are code splitted for performance purposes
 const A1 = dynamic(() => import("./animals")
   .then((mods)=>mods.A1), {
     ssr: false,
@@ -198,6 +195,7 @@ const Yellow2 = dynamic(() => import("./bg_colors")
 export default function AllDogs(){
   let [loading , setLoading] = useState(true);
     useEffect(()=>{
+      //only the first thing to be shown here are loaded
        for(var i = 0; i<20; i++){
         let flex_id =  `flex_${flex}`;
         flex+= 1;
@@ -208,10 +206,7 @@ export default function AllDogs(){
           </div>
         )
       }
-      //white
       setTimeout(()=>{
-
-      
 
       //right direction
       let rightImg = ['/a2.png' , '/a3.png' , '/b1.png' , '/w2.png']

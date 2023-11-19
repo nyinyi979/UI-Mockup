@@ -1,5 +1,4 @@
 import {SiDatadog} from 'react-icons/si'
-import { SlPicture } from 'react-icons/sl'
 
 import {AiOutlineReload} from 'react-icons/ai';
 import {FaCat} from 'react-icons/fa'
@@ -9,7 +8,7 @@ import {CiCircleQuestion} from 'react-icons/ci'
 import { Dogs, Bg, Direction } from './pop_up';
 let icon_class = "cursor-pointer text-black ml-3 text-4xl hover:scale-110 scale-100 duration-300 h-12 md:mt-4 mt-3"
 export default function NavBar(){
-    //BiSolidDog PiDogDuotone GiSittingDog SiDatadog FaCat FaShieldCat
+
     return(
         <div id="navbar" className="fixed w-fit h-fit left-0 top-20 rounded-md items-center align-middle z-30">
             {/* first portion */}

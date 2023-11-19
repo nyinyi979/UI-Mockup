@@ -23,6 +23,8 @@ let a4: React.ReactNode[] = [];
 let flexB1 = 1, flexB2 = 1, flexB3 = 1, flexB4 = 1 , flexB6 = 1 , flexB7 = 1 , flexB8 = 1 , flexB9 = 1, flexB10 = 1,
 flexW1 = 1 , flexW2 = 1 , flexW3 = 1, flexW4 = 1 , flexW5 = 1 , flexW6 = 1 , flexA1 = 1 , flexA2 = 1 , flexA3 = 1 , flexA4 = 1;
 
+//ALL OF THE ELEMENTS HAVE A LOADING STATE AND 
+//USEEFFECT has setTimeOut for asynchronous purposes
 export function B1(){
   let [ loading , setLoading ] = useState(true);
   useEffect(()=>{

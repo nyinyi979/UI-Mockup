@@ -6,6 +6,8 @@ export let bg = ['bg-white' , 'bg-gray-500' ,  'bg-gray-950' , 'bg-red-500' , 'b
 let imgClass = 'cursor-pointer rounded-md lg:w-[176px] lg:h-[176px] md:w-[156px] md:h-[156px] h-[128px] w-[128px] m-[3px] bg-cover z-100';
 import Image from "next/image";
 import { setValue } from "./setValue";
+
+//custom function for image production with random bg colour && src to reduce duplication
 export function ProduceImageRandom(){
     let arr = [];
     for(var i = 0; i<30; i++){
@@ -17,6 +19,7 @@ export function ProduceImageRandom(){
     }
     return arr;
 }
+//custom function for image production with random bg colour to reduce duplication
 export function ProduceImageWithBG(bg_color:string){
   let arr = [];
   for(var i = 0; i<30; i++){
@@ -27,6 +30,7 @@ export function ProduceImageWithBG(bg_color:string){
   }
   return arr;
 }
+//custom function for image production with SRC && random bg colour to reduce duplication
 export function ProduceImageWithSrc(src: string){
   let arr = [];
   for(var i = 0; i<30; i++){
@@ -37,6 +41,7 @@ export function ProduceImageWithSrc(src: string){
   }
   return arr;
 }
+//custom function for image production with direction to reduce duplication
 export function ProduceImageWithDirection(images_: string[]){
   let arr = [];
   for(var i = 0; i<30; i++){

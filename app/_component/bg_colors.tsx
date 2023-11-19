@@ -1,5 +1,5 @@
 import {useEffect,useState} from 'react';
-import { ProduceImageWithBG, ProduceImageWithSrc, bg } from "./images_production";
+import { ProduceImageWithBG, bg } from "./images_production";
 
 const white: React.ReactNode[] = [];
 const gray: React.ReactNode[] = [];
@@ -18,8 +18,11 @@ const lime: React.ReactNode[] = [];
 const lime2: React.ReactNode[] = [];
 const green: React.ReactNode[] = [];
 const green2: React.ReactNode[] = [];
-let flex = 1, flex_w = 1, flex_g = 1 , flex_g2 = 1, flex_r = 1, flex_r2 = 1 , flex_b = 1, flex_b2 = 1, flex_s = 1, flex_s2 = 1,
+let flex_w = 1, flex_g = 1 , flex_g2 = 1, flex_r = 1, flex_r2 = 1 , flex_b = 1, flex_b2 = 1, flex_s = 1, flex_s2 = 1,
     flex_y = 1, flex_y2 = 1, flex_a = 1, flex_a2 = 1 , flex_l = 1 , flex_l2 = 1 , flex_gr = 1 , flex_gr2 = 1;
+    
+//ALL OF THE ELEMENTS HAVE A LOADING STATE AND 
+//USEEFFECT has setTimeOut for asynchronous purposes
 export function White(){
   let [ loading , setLoading ] = useState(true);
   useEffect(()=>{
@@ -372,8 +375,8 @@ export function Green(){
     setTimeout(()=>{
       //green
       for(var i = 0; i<20; i++){
-        let flex_id =  `flex_${flex_g}`;
-        flex_g += 1;
+        let flex_id =  `flex_${flex_gr}`;
+        flex_gr += 1;
         let background_colour = bg[15];
         let Items = ProduceImageWithBG(background_colour);
         green.push(
@@ -395,8 +398,8 @@ export function Green2(){
     setTimeout(()=>{
       //green950
       for(var i = 0; i<20; i++){
-        let flex_id =  `flex_${flex_g2}`;
-        flex_g2 += 1;
+        let flex_id =  `flex_${flex_gr2}`;
+        flex_gr2 += 1;
         let background_colour = bg[16];
         let Items = ProduceImageWithBG(background_colour);
         green2.push(

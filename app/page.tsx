@@ -6,6 +6,7 @@ import { FaTwitter , FaDiscord } from "react-icons/fa";
 import { SiOpensea } from "react-icons/si";
 export default function LandingPage(){
     useEffect(()=>{
+        //circle animation
         anime({
             targets: ['#first_circle' , '#second_circle'],
             scale: 1,
@@ -14,18 +15,19 @@ export default function LandingPage(){
             easing: 'linear',
             opacity: 1,
             autoplay: true,
-            backgroundColor:'#4133ff',
-            begin: ()=>{
-                document.getElementById('texts')!.style.display = 'block'
+            changeBegin: ()=>{
+                document.getElementById('first_circle')!.style.backgroundColor = '#4133ff'
+                document.getElementById('second_circle')!.style.backgroundColor = '#4133ff'
             },
             complete: ()=>{
                 document.getElementById('imgs')!.style.opacity = '1'
+                document.getElementById('texts')!.style.display = 'block'
             }
         });
         document.getElementById('loading')!.style.display = 'none';
     }, [])
     return(
-        <div className="relative bg-amber-200 w-[100%] h-[100%]  overflow-hidden">
+        <div className="relative bg-amber-200 w-[100%] h-[100vh]  overflow-hidden">
             
         <div id="loading" className="w-[80vh] md:w-[160vh] lg:w-[200vh] h-[100%] "></div>
         <div className='fixed top-16 left-20 font-extrabold text-blue-700 z-40 lg:text-7xl text-3xl'>
@@ -59,6 +61,7 @@ export default function LandingPage(){
             <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[10%]"/>
         </div>
             
+
             <div id="blue" className="z-50 fixed right-0 bottom-0 cursor-pointer" onClick={animate}>
                 <div id="texts" className="absolute right-5 bottom-5 text-white z-50">View Collection</div>
                 
