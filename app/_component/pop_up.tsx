@@ -7,6 +7,11 @@ import { BiSolidDirectionLeft } from "react-icons/bi";
 import { GiMultiDirections } from "react-icons/gi";
 let icon_class = "cursor-pointer text-black ml-3 text-4xl hover:scale-110 scale-100 duration-300 h-12"
 
+let ids = ['w1.png' , 'w2.png' , 'a1.png' , 'a2.png' , 'a3.png' , 'a4.png',  'w3.png' , 'w4.png' , 'w5.png', 'w6.png'
+, 'b1.png', 'b2.png', 'b3.png', 'b4.png', 'b6.png', 'b7.png', 'b8.png', 'b9.png', 'b10.png','bg-white' , 'bg-gray-500' , 
+'bg-gray-950' , 'bg-red-500' , 'bg-red-950' , 'bg-blue-500' , 'bg-blue-950' , 'bg-stone-500' , 'bg-stone-950' , 
+'bg-yellow-500' ,'bg-yellow-950' , 'bg-amber-500' , 'bg-amber-950' , 'bg-lime-500' , 'bg-green-500' , 'bg-lime-950' , 'bg-green-950'
+,'left' , 'right' , 'center','all_items']
 export function Dogs(){
   let images = ['/w1.png' , '/w2.png' , '/a1.png' , '/a2.png' , '/a3.png' , '/a4.png',  '/w3.png' , '/w4.png' , '/w5.png', '/w6.png', '/b1.png',
    '/b2.png', '/b3.png', '/b4.png', '/b6.png', '/b7.png', '/b8.png', '/b9.png', '/b10.png'];
@@ -14,17 +19,13 @@ export function Dogs(){
     function choosenCheck(value:string){
         if(chosen === value) setChosen('');
         else setChosen(value);
-        images.map((value)=>{
-          
-        })
     }
     useEffect(()=>{
       let all_items = document.getElementById('all_items');
       let count = 0;
-      images.map((value)=>{
-        let id = value.split('/')[1];
-        if(value === chosen) {
-          console.log(chosen)
+      ids.map((id)=>{
+        if(id === chosen) {
+          console.log(chosen , id);
           document.getElementById(id)!.style.display = 'block';
         }
         else {
@@ -32,7 +33,8 @@ export function Dogs(){
           count += 1;
         }
       })
-      if(count === images.length) {
+      console.log(count , ids.length)
+      if(count === ids.length) {
         if(all_items !== null) all_items.style.display = 'block'
       }
       else {
@@ -49,7 +51,7 @@ export function Dogs(){
           <ul id="d1" tabIndex={0} className="dropdown-content right-0 z-[1] grid grid-cols-5 gap-5 p-7 shadow bg-black rounded-box w-[25rem]">
                 <h2 className="col-span-5 text-center">Images</h2>
                 {images.map((value)=>(
-                    <Image key={value} src={value} width={100} height={100} alt="pic" className={`cursor-pointer w-12 h-12 rounded-md bg-cover ${chosen === value ? 'border-yellow-200 border-2' : 'hover:scale-110 duration-500'}`} onClick={()=>{choosenCheck(value)}}/>
+                    <Image key={value} src={value} width={100} height={100} alt="pic" className={`cursor-pointer w-12 h-12 rounded-md bg-cover ${chosen === value.split('/')[1] ? 'border-yellow-200 border-2' : 'hover:scale-110 duration-500'}`} onClick={()=>{choosenCheck(value.split('/')[1])}}/>
                 ))}
             
           </ul>
@@ -71,17 +73,17 @@ export function Bg(){
     useEffect(()=>{
       let all_items = document.getElementById('all_items');
       let count = 0;
-      bg.map((value)=>{
-        if(value === chosen) {
+      ids.map((id)=>{
+        if(id === chosen) {
           console.log(chosen)
-          document.getElementById(value)!.style.display = 'block';
+          document.getElementById(id)!.style.display = 'block';
         }
         else {
-          if(document.getElementById(value)) document.getElementById(value)!.style.display = 'none';
+          if(document.getElementById(id)) document.getElementById(id)!.style.display = 'none';
           count += 1;
         }
       })
-      if(count === bg.length) {
+      if(count === ids.length) {
         if(all_items !== null) all_items.style.display = 'block'
       }
       else {
@@ -116,17 +118,17 @@ export function Direction(){
   useEffect(()=>{
     let all_items = document.getElementById('all_items');
     let count = 0;
-    directions.map((value)=>{
-      if(value === chosen) {
+    ids.map((id)=>{
+      if(id === chosen) {
         console.log(chosen)
-        document.getElementById(value)!.style.display = 'block';
+        document.getElementById(id)!.style.display = 'block';
       }
       else {
-        if(document.getElementById(value)) document.getElementById(value)!.style.display = 'none';
+        if(document.getElementById(id)) document.getElementById(id)!.style.display = 'none';
         count += 1;
       }
     })
-    if(count === directions.length) {
+    if(count === ids.length) {
       if(all_items !== null) all_items.style.display = 'block'
     }
     else {

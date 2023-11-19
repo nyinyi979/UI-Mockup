@@ -46,7 +46,6 @@ export default function ImageBox(){
   function exitImageView(){
     let custom_image = document.getElementById('custom_img')!;
     document.getElementById(main_id)!.style.opacity = '1';
-    custom_image!.style.opacity = '0';
 
     disappear.restart();
     move_right_f.reverse();
@@ -63,6 +62,7 @@ export default function ImageBox(){
     move_right_s.restart();
     setTimeout(()=>{
       custom_image.classList.remove(bg_color);
+      custom_image!.style.opacity = '0';
       document.getElementById('items')!.style.top = `${scrollPoint}`;
       document.getElementById('items')!.style.position = 'relative';
       window!.scrollTo({top:scrollPoint,behavior:'smooth'})
@@ -71,13 +71,13 @@ export default function ImageBox(){
 
   return(
     <>
-    <div id="overlay" className=" fixed bg-black/50 cursor-pointer w-[100%] h-[100%] top-0 left-0 lg:py-20 py-0 px-10 z-30" onClick={exitImageView} onSelect={(e)=>{e.preventDefault()}}>
+    <div id="overlay" className="hidden fixed bg-black/50 cursor-pointer w-[100%] h-[100%] top-0 left-0 lg:py-20 py-0 px-10 z-30" onClick={exitImageView} onSelect={(e)=>{e.preventDefault()}}>
       <div className="grid lg:grid-cols-4 grid-cols-2 gap-10">
         <img src='/w1.png' id="custom_img" className="col-span-2 block cursor-pointer rounded-lg lg:w-[176px] lg:h-[176px] md:w-[156px] md:h-[156px] h-[128px] w-[128px] mx-auto ml-[70px] mt-[22px]"/>
 
         <div className="w-full col-span-2 z-40">
           <h1 id="name" className="text-left w-full text-3xl p-2 lg:mt-0 mt-44">FluffyHugs #ID</h1>
-          <div id="scroll" className="grid grid-cols-2 md:gap-2 gap-0 lg:h-full h-72 overflow-y-scroll overscroll-contain scrollbar scrollbar-w-1 scrollbar-thumb-rounded-sm scrollbar-thumb-sky-200 md:scrollbar-track-transparent pb-10">
+          <div id="scroll" className="grid grid-cols-2 md:gap-1 gap-0 lg:h-full h-72 overflow-y-scroll overscroll-contain scrollbar scrollbar-w-1 scrollbar-thumb-rounded-sm scrollbar-thumb-sky-200 scrollbar-track-transparent pb-10">
             
             <div className="flex flex-col">
               <div className="w-11/12 lg:h-24 h-20 px-7 py-3 md:m-5 m-2 rounded-lg bg-[#a3a3a385] leading-8 text-center">
@@ -275,14 +275,14 @@ function AddAnimationSmallScreen(id: string ){
   })
   move_right_f = anime({
     targets: first_array_r,
-    translateX: 250,
+    translateX: 270,
     duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_right_s = anime({
     targets: second_array_r,
-    translateX: 155,
+    translateX: 135,
     duration: 500,
     autoplay: true,
     easing: 'linear'
@@ -306,7 +306,7 @@ function AddAnimationSmallScreen(id: string ){
     targets: `#custom_img`,
     scale: 1.8, 
     translateY : 72,
-    translateX: 50,
+    translateX: 38,
     rotate: -15,
     duration: 650,
     delay: 200,
@@ -346,11 +346,6 @@ function AddAnimationMiddleScreen(id: string ){
     duration: 400,
     easing: 'easeInOutQuad',
   })
-  anime({
-    targets: '#text',
-    opacity: 0.8,
-    duration: 600
-  })
   scale_up_disappear = anime({
     targets: `#${main_id}`,
     scale: 1.8,
@@ -362,28 +357,28 @@ function AddAnimationMiddleScreen(id: string ){
   })
   move_right_f = anime({
     targets: first_array_r,
-    translateX: 303,
+    translateX: 325,
     duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_right_s = anime({
     targets: second_array_r,
-    translateX: 140,
+    translateX: 163,
     duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_f = anime({
     targets: first_array_l,
-    translateX: -323,
+    translateX: -325,
     duration: 500,
     autoplay: true,
     easing: 'linear'
   })
   move_left_s = anime({
     targets: second_array_l,
-    translateX: -160,
+    translateX: -163,
     duration: 500,
     autoplay: true,
     easing: 'linear'
@@ -393,7 +388,7 @@ function AddAnimationMiddleScreen(id: string ){
     targets: `#custom_img`,
     scale: 1.86, 
     translateY : 70,
-    translateX: 105,
+    translateX: 90,
     rotate: -15,
     duration: 650,
     delay: 200,

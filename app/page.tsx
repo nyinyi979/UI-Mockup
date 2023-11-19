@@ -11,7 +11,7 @@ export default function LandingPage(){
             scale: 1,
             loop:false,
             duration: 1000,
-            easing: 'easeInOutQuad',
+            easing: 'linear',
             opacity: 1,
             autoplay: true,
             backgroundColor:'#4133ff',
@@ -62,8 +62,8 @@ export default function LandingPage(){
             <div id="blue" className="z-50 fixed right-0 bottom-0 cursor-pointer" onClick={animate}>
                 <div id="texts" className="absolute right-5 bottom-5 text-white z-50">View Collection</div>
                 
-                <div id="first_circle" className="two_circles  absolute opacity-0 -bottom-5 -right-3 w-32 h-32 rotate-[40deg]" style={{borderRadius:'4rem 4rem 0 0', backgroundColor: 'black',transform:'scale(35)'}}></div>
-                <div id="second_circle" className="two_circles absolute opacity-0 -bottom-7 right-20 w-24 h-24 rotate-3" style={{borderRadius:'5rem 4rem 0 5rem', backgroundColor: 'black',transform:'scale(35)'}}></div>
+                <div id="first_circle" className="two_circles  absolute opacity-50 -bottom-5 -right-3 w-32 h-32 rotate-[40deg]" style={{borderRadius:'4rem 4rem 0 0', backgroundColor: 'black',transform:'scale(35)'}}></div>
+                <div id="second_circle" className="two_circles absolute opacity-50 -bottom-7 right-20 w-24 h-24 rotate-3" style={{borderRadius:'5rem 4rem 0 5rem', backgroundColor: 'black',transform:'scale(35)'}}></div>
             </div>
             
             <div className="absolute bottom-5 left-12 flex z-30 gap-4">
@@ -81,7 +81,7 @@ function animate(){
         scale: 35,
         loop:false,
         duration: 700,
-        easing: 'easeInOutQuad',
+        easing: 'linear',
         opacity: 1,
         begin: ()=>{
             document.getElementById('texts')!.style.display = 'none'
