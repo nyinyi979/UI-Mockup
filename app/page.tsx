@@ -62,12 +62,12 @@ export default function LandingPage(){
             <Image src={'/a3.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[0px] left-[30%]"/>
             <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[0px] left-[10%]"/>
             
-            <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[300px] left-[-20%]"/>
-            <Image src={'/a3.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[350px] left-[-10%]"/>
-            <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[300px] left-[-20%]"/>
-            <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[350px] left-[0%]"/>
-            <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[300px] left-[30%]"/>
-            <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[350px] left-[44%]"/>
+            <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[400px] left-[-20%]"/>
+            <Image src={'/a3.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[450px] left-[-10%]"/>
+            <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[400px] left-[-20%]"/>
+            <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[450px] left-[0%]"/>
+            <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[400px] left-[30%]"/>
+            <Image src={'/a4.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[450px] left-[44%]"/>
             <Image src={'/a3.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp bg-cover absolute top-[350px] left-[80%]"/>
             <Image src={'/a2.png'} alt="w2" width={700} height={700} className="rounded-md bounceUp300 bg-cover absolute top-[300px] left-[100%]"/>
         </div>
