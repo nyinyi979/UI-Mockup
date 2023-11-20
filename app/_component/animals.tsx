@@ -414,7 +414,7 @@ export function A2(){
     }, 1)
   }, [])
   return (
-    <div id="a2.png" className="">{loading? "" : a2}</div>
+    <div id="a2.png" className="hidden">{loading? "" : a2}</div>
   )
 }
 export function A3(){
@@ -437,7 +437,7 @@ export function A3(){
     }, 1)
   }, [])
   return (
-    <div id="a3.png" className="">{loading? "" : a3}</div>
+    <div id="a3.png" className="hidden">{loading? "" : a3}</div>
   )
 }
 export function A4(){
@@ -460,7 +460,7 @@ export function A4(){
     }, 1)
   }, [])
   return (
-    <div id="a4.png" className="">{loading? "" : a4}</div>
+    <div id="a4.png" className="hidden">{loading? "" : a4}</div>
     
   )
 }

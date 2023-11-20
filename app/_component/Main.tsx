@@ -11,6 +11,92 @@ let right: React.ReactNode[] = [];
 let center: React.ReactNode[] = [];
 let flexLeft = 1 , flexRight = 1, flexCenter = 1;
 //all of the elements are code splitted for performance purposes
+
+const White = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.White),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Amber = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Amber),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Amber2 = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Amber2),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Blue = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Blue),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Blue2 = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Blue2),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Gray = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Gray),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Gray2 = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Gray2),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Green = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Green),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Green2 = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Green2),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Lime = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Lime),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Lime2 = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Lime2),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Red = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Red),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Red2 = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Red2),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Stone = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Stone),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Stone2 = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Stone2),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Yellow = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Yellow),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
+const Yellow2 = dynamic(() => import("./bg_colors")
+  .then((mods)=>mods.Yellow2),{
+    ssr: false,
+    loading: () => <p>Loading...</p>
+});
 const A1 = dynamic(() => import("./animals")
   .then((mods)=>mods.A1), {
     ssr: false,
@@ -107,96 +193,11 @@ const B10 = dynamic(() => import("./animals")
   loading: () => <p>Loading...</p>
 });
 
-const White = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.White),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Amber = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Amber),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Amber2 = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Amber2),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Blue = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Blue),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Blue2 = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Blue2),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Gray = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Gray),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Gray2 = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Gray2),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Green = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Green),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Green2 = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Green2),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Lime = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Lime),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Lime2 = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Lime2),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Red = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Red),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Red2 = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Red2),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Stone = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Stone),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Stone2 = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Stone2),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Yellow = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Yellow),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-const Yellow2 = dynamic(() => import("./bg_colors")
-  .then((mods)=>mods.Yellow2),{
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
 export default function AllDogs(){
   let [loading , setLoading] = useState(true);
     useEffect(()=>{
       //only the first thing to be shown here are loaded
-       for(var i = 0; i<20; i++){
+       for(var i = 0; i<40; i++){
         let flex_id =  `flex_${flex}`;
         flex+= 1;
         let Items = ProduceImageRandom();
@@ -261,14 +262,14 @@ export default function AllDogs(){
         <div id="items" className="opacity-50">
           <div id="all_items">{items}</div>
           <White />
-          <Amber /> <Amber2 />
-          <Lime /> <Lime2 />
-          <Green /> <Green2 />
-          <Yellow /> <Yellow2 />
-          <Stone /> <Stone2 />
-          <Red /> <Red2 />
           <Blue /> <Blue2 />
           <Gray /> <Gray2 />
+          <Amber /> <Amber2 />
+          <Green /> <Green2 />
+          <Lime /> <Lime2 />
+          <Red /> <Red2 />
+          <Stone /> <Stone2 />
+          <Yellow /> <Yellow2 />
         
           <A1 /><A2 />
           <A3 /><A4 />
@@ -280,13 +281,13 @@ export default function AllDogs(){
           <B6 /><B7 />
           <B8 /><B9 />
           <B10 />
-          <div id="left">
+          <div id="left" className="hidden">
             {left}
           </div> 
-          <div id="right">
+          <div id="right" className="hidden">
             {right}
           </div>
-          <div id="center">
+          <div id="center" className="hidden">
             {center}
           </div>  
         </div>
