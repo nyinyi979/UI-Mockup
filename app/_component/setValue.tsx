@@ -76,7 +76,7 @@ export default function ImageBox(){
         <img src='/w1.png' id="custom_img" className="col-span-2 block cursor-pointer rounded-lg lg:w-[176px] lg:h-[176px] md:w-[156px] md:h-[156px] h-[128px] w-[128px] mx-auto ml-[70px] mt-[22px]"/>
 
         <div className="w-full col-span-2 z-40">
-          <h1 id="name" className="text-left w-full text-3xl p-2 lg:mt-0 mt-44">FluffyHugs #ID</h1>
+          <h1 id="name" className="text-left w-full text-3xl p-4 md:p-2 lg:mt-0 mt-44">FluffyHugs #ID</h1>
           <div id="scroll" className="grid grid-cols-2 md:gap-1 gap-0 h-96 md:h-full overflow-y-scroll overscroll-contain scrollbar scrollbar-w-1 scrollbar-thumb-rounded-sm scrollbar-thumb-sky-200 scrollbar-track-transparent pb-10">
             
             <div className="flex flex-col">
