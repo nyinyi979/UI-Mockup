@@ -7,4 +7,5 @@
 - TailwindCSS , DaisyUI
 - AnimeJS 
 
-
+##Caution
+- Please wait about 2 , 3 seconds before clicking on an image because it might break the UI( will fix this )
